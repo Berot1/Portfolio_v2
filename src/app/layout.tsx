@@ -3,12 +3,12 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "Gil Bernard | Software Engineer",
+  title: "Gil Bernard",
   description: "Portfolio of Gil Bernard, Software Engineer and creator of KneuraSense.",
   icons: {
-    icon: "/tabProfile.jpg",
-    shortcut: "/tabProfile.jpg",
-    apple: "/tabProfile.jpg",
+    icon: "/image/tabprofile.jpg",
+    shortcut: "/image/tabprofile.jpg",
+    apple: "/image/tabprofile.jpg",
   },
 };
 

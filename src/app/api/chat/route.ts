@@ -1,14 +1,12 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { personalInfo} from "@/data/portfolio";
+import { personalInfo } from "@/data/portfolio";
 import { NextResponse } from "next/server";
 
-// 1. Define the message structure to avoid TypeScript errors
 interface ChatMessage {
   role: 'user' | 'ai';
   content: string;
 }
 
-// 2. Initialize the Gemini SDK with your environment variable
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
 export async function POST(req: Request) {
@@ -16,8 +14,6 @@ export async function POST(req: Request) {
     const body = await req.json();
     const messages: ChatMessage[] = body.messages;
 
-    // 3. Setup the model with a "System Instruction" based on your portfolio data
-    // Updated model version and formatting instructions
     const model = genAI.getGenerativeModel({ 
       model: "gemini-2.5-flash", 
       systemInstruction: `
@@ -36,23 +32,20 @@ export async function POST(req: Request) {
         - Decline format example: "I'd love to chat about that, but I'm programmed strictly to discuss my professional portfolio and projects. Is there anything you'd like to know about my work with IoT or web development?"
         
         GUIDELINES:
-        1. Answer in the FIRST PERSON ("I developed...", "My experience...").
-        2. If asked about contact, invite them to "Schedule a Call" or email: ${personalInfo.email}.
-        3. Use short paragraphs. Keep responses generally concise.
-        4. MUST use bullet points when listing projects, technologies, or achievements.
-        5. Use Markdown for emphasis (e.g., **Next.js**, *Edge AI*).
+        1. Answer directly and immediately without unnecessary conversational filler or preamble.
+        2. Answer in the FIRST PERSON ("I developed...", "My experience...").
+        3. If asked about contact, invite them to "Schedule a Call" or email: ${personalInfo.email}.
+        4. Use short paragraphs. Keep responses direct and highly concise.
+        5. MUST use bullet points when listing projects, technologies, or achievements.
+        6. Use Markdown for emphasis (e.g., **Next.js**, *Edge AI*).
       `
     });
 
-    // 4. Start the chat session with history
-    // 1. Map the history excluding the very last message
     let history: Array<{role: string; parts: Array<{text: string}>}> = messages.slice(0, -1).map((m: ChatMessage) => ({
       role: m.role === "user" ? "user" : "model",
       parts: [{ text: m.content }],
     }));
 
-    // 2. Gemini STRICTLY requires the first message in history to be from the 'user'.
-    // If the first message is our hardcoded AI greeting, remove it from the API history.
     if (history.length > 0 && history[0].role === "model") {
       history = history.slice(1);
     }

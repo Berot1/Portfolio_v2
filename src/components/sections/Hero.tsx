@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="shrink-0">
         <div className="group w-32 h-32 md:w-48 md:h-48 rounded-sm overflow-hidden relative border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 cursor-pointer">
           <Image 
-            src="/profile.jpg" 
+            src="/image/profile.jpg" 
             alt={personalInfo.name} 
             fill 
             className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-103" 
