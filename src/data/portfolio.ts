@@ -2,7 +2,7 @@ export const personalInfo = {
   name: "Gil Bernard F. Maglinte",
   role: "Software Engineer \\ IoT & Edge AI Researcher",
   location: "Hilongos, Eastern Visayas, Philippines",
-  email: "hello@example.com",
+  email: "mgilbernard@gmaiil.com",
   about: [
     "I'm a full-stack software engineer specializing in developing solutions that bridge web technologies and the Internet of Things. I focus on developing full-stack web applications and integrating them seamlessly with hardware and sensor modules.",
     "My work heavily involves architectural design, database management, and leveraging embedded systems to capture and process real-time data for advanced monitoring systems.",
@@ -89,8 +89,3 @@ export const socialLinks = [
   { name: "GitHub", link: "#", icon: "Github" },
   { name: "Instagram", link: "#", icon: "Instagram" }
 ];
-
-export const speaking = {
-  description: "Available for speaking at events about software development and emerging technologies.",
-  link: "#"
-};

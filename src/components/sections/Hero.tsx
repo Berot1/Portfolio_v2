@@ -10,9 +10,14 @@ export default function Hero() {
       
       {/* Profile Image */}
       <div className="shrink-0">
-        <div className="w-32 h-32 md:w-48 md:h-48 rounded-sm overflow-hidden relative border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900">
-          {/* Ensure your profile.jpg is inside the /public folder! */}
-          <Image src="/profile.jpg" alt={personalInfo.name} fill className="object-cover" />
+        <div className="group w-32 h-32 md:w-48 md:h-48 rounded-sm overflow-hidden relative border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 cursor-pointer">
+          <Image 
+            src="/profile.jpg" 
+            alt={personalInfo.name} 
+            fill 
+            className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-103" 
+          />
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
         </div>
       </div>
 
@@ -23,19 +28,19 @@ export default function Hero() {
             
             {/* Name & Location */}
             <div>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white flex items-center gap-2">
+              <h1 className="text-3xl md:text-3xl font-extrabold text-zinc-900 dark:text-white flex items-center gap-2">
                 {personalInfo.name}
                 {/* Verified Badge styling to match the reference */}
-                <BadgeCheck className="w-6 h-6 text-blue-500 fill-blue-500" strokeWidth={1.5} color="white" />
+                <BadgeCheck className="w-4 h-4 fill-blue-500 text-white dark:text-black" strokeWidth={1.5}/>
               </h1>
-              <p className="text-zinc-900 dark:text-zinc-200 flex items-center gap-1.5 mt-2 font-medium">
+              <p className="text-zinc-900 dark:text-zinc-200 flex items-center gap-1.5 mt-2 font-small">
                 <MapPin className="w-4 h-4 text-zinc-600 dark:text-zinc-400" /> 
                 {personalInfo.location}
               </p>
             </div>
 
             {/* Role Title */}
-            <p className="text-lg md:text-xl text-zinc-900 dark:text-zinc-100 font-medium">
+            <p className="text-lg md:text-1xl text-zinc-900 dark:text-zinc-100 font-medium">
               {personalInfo.role}
             </p>
 

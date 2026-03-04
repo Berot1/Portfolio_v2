@@ -12,6 +12,7 @@
 
 @theme {
   --animate-scroll-horizontal: scroll-horizontal 30s linear infinite;
+  --ease-spring: cubic-bezier(0.4, 0, 0.2, 1.2);
 
   @keyframes scroll-horizontal {
     from { transform: translateX(0); }

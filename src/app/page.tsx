@@ -10,6 +10,7 @@ import ConnectGrid from '@/components/sections/ConnectGrid';
 import Gallery from '@/components/sections/Gallery';
 import Footer from '@/components/layout/footer';
 import { MessageSquare } from 'lucide-react';
+import Chat from '@/components/Chat';
 
 // Reusable wrapper to create the structured "Bento Box" look
 function SectionBox({ children }: { children: React.ReactNode }) {
@@ -64,12 +65,7 @@ export default function Portfolio() {
       </div>
       
       {/* Floating Chat Button */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <button className="bg-zinc-900 text-white dark:bg-white dark:text-black px-5 py-3 rounded-lg font-bold text-sm flex items-center gap-2 shadow-xl hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors">
-          <MessageSquare className="w-4 h-4 fill-current" />
-          Chat with Gil
-        </button>
-      </div>
+      <Chat />
     </main>
   );
 }
