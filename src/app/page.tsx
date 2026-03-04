@@ -59,7 +59,7 @@ export default function Portfolio() {
       {/* Full Width Bottom Section */}
       <SectionBox><Gallery /></SectionBox>
 
-      <div className="pt-6">
+      <div className="pt-15">
         <Footer />
       </div>
       

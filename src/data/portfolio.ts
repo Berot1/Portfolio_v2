@@ -74,7 +74,7 @@ export const certifications = [
 export const recommendations = [
   {
     quote: "Gil's work on the KneuraSense project demonstrated an exceptional grasp of both hardware constraints and advanced machine learning. His ability to deploy Edge AI models onto microcontrollers is truly impressive and forward-thinking.",
-    name: "Dr. Aris Mendoza",
+    name: "Dr. Example",
     role: "Research Director, University Lab"
   }
 ];

@@ -5,8 +5,8 @@ export default function TechStack() {
   return (
     <section className="space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold text-zinc-900 dark:text-white">Tech Stack</h2>
-        <span className="text-sm text-zinc-500 hover:text-black dark:hover:text-white cursor-pointer transition-colors">View All &gt;</span>
+        <h2 className="text-xl font-bold text-black dark:text-white">Tech Stack</h2>
+        <span className="text-sm text-zinc-600 hover:text-black dark:hover:text-white cursor-pointer transition-colors">View All &gt;</span>
       </div>
       
       <div className="space-y-6">
@@ -17,7 +17,7 @@ export default function TechStack() {
               {technologies.map((tech) => (
                 <span 
                   key={tech} 
-                  className="px-3 py-1.5 bg-zinc-50 dark:bg-transparent border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-700 dark:text-zinc-300 rounded-md"
+                  className="px-2 py-1 bg-white dark:bg-transparent border border-zinc-100 dark:border-zinc-100 text-sm text-black dark:text-zinc-100 rounded-sm"
                 >
                   {tech}
                 </span>

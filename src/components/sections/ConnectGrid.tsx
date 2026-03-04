@@ -11,9 +11,15 @@ export default function ConnectGrid() {
       {/* 1. Affiliations */}
       <div className="space-y-4">
         <h3 className="font-bold text-zinc-900 dark:text-white text-sm">A member of</h3>
-        <div className="space-y-0 text-sm">
+        {/* Changed space-y-0 to space-y-3 */}
+        <div className="space-y-1 text-sm">
           {affiliations.map((item, i) => (
-            <a key={i} href={item.link} className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors first:rounded-t-lg last:rounded-b-lg -mt-px relative z-10 hover:z-20">
+            <a 
+              key={i} 
+              href={item.link} 
+              // Changed rounded classes to simple rounded-lg and removed -mt-px
+              className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-sm relative z-10"
+            >
               <span className="font-medium text-zinc-900 dark:text-zinc-100 pr-4 leading-tight">{item.name}</span>
               <ExternalLink className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
             </a>
@@ -24,11 +30,17 @@ export default function ConnectGrid() {
       {/* 2. Social Links */}
       <div className="space-y-4">
         <h3 className="font-bold text-zinc-900 dark:text-white text-sm">Social Links</h3>
-        <div className="space-y-0 text-sm">
+        {/* Changed space-y-0 to space-y-3 */}
+        <div className="space-y-1 text-sm">
           {socialLinks.map((item, i) => {
             const Icon = IconMap[item.icon];
             return (
-              <a key={i} href={item.link} className="flex items-center gap-3 p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors first:rounded-t-lg last:rounded-b-lg -mt-px relative z-10 hover:z-20">
+              <a 
+                key={i} 
+                href={item.link} 
+                // Changed rounded classes to simple rounded-lg and removed -mt-px
+                className="flex items-center gap-3 p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-sm relative z-10"
+              >
                 {Icon && <Icon className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />}
                 <span className="font-bold text-zinc-900 dark:text-white">{item.name}</span>
               </a>
@@ -40,7 +52,7 @@ export default function ConnectGrid() {
       {/* 3. Speaking */}
       <div className="space-y-4">
         <h3 className="font-bold text-zinc-900 dark:text-white text-sm">Speaking</h3>
-        <div className="flex flex-col justify-between h-[calc(100%-2rem)] p-5 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-lg">
+        <div className="flex flex-col justify-between h-[calc(100%-2rem)] p-5 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-sm">
           <p className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed font-medium">
             {speaking.description}
           </p>
@@ -52,8 +64,9 @@ export default function ConnectGrid() {
 
       {/* 4. Action Cards */}
       <div className="space-y-4 lg:pt-9">
-        <div className="space-y-0">
-          <a href="#" className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-t-lg relative z-10 hover:z-20">
+        {/* Changed space-y-0 to space-y-3 */}
+        <div className="space-y-1">
+          <a href="#" className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-lg relative z-10">
             <div>
               <div className="flex items-center gap-2 mb-0.5">
                 <Mail className="w-3.5 h-3.5 text-zinc-500" />
@@ -63,7 +76,7 @@ export default function ConnectGrid() {
             </div>
           </a>
           
-          <a href="#" className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors -mt-px relative z-10 hover:z-20">
+          <a href="#" className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-lg relative z-10">
             <div>
               <div className="flex items-center gap-2 mb-0.5">
                 <Calendar className="w-3.5 h-3.5 text-zinc-500" />
@@ -74,7 +87,7 @@ export default function ConnectGrid() {
             <ChevronRight className="w-4 h-4 text-zinc-300" />
           </a>
 
-          <a href="#" className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-b-lg -mt-px relative z-10 hover:z-20">
+          <a href="#" className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-lg relative z-10">
             <div>
               <div className="flex items-center gap-2 mb-0.5">
                 <BookOpen className="w-3.5 h-3.5 text-zinc-500" />
