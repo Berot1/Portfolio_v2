@@ -102,20 +102,43 @@ export const techStack = {
 
 export const certifications = [
   { 
+    slug: "Monitoring-AWS", 
+    title: "Introduction to Monitoring AWS", 
+    issuer: "Datadog", 
+    date: "Feb 2026",
+    credentialUrl: "https://learn.datadoghq.com/certificates/cqrngxkbzo"
+  },
+  { 
+    slug: "Cloud-SIEM", 
+    title: "Introduction to Cloud SIEM", 
+    issuer: "Datadog", 
+    date: "Feb 2026",
+    credentialUrl: "https://learn.datadoghq.com/certificates/irgl0w0zue"
+  },
+  { 
     slug: "jumpstart",
     title: "Jumpstart Training Program — C# Web Development", 
     issuer: "Alliance Software Inc.",
     date: "Dec 2025",
     description: "Completed the intensive Jumpstart Training Program specializing in C# Web Development, gaining hands-on experience in building, structuring, and deploying web applications.",
-    image: "/image/jumpstart-cert.svg" 
+    image: "/image/jumpstart-cert.jpg",
+    credentialUrl: "https://your-public-link-here.com"
   },
   { 
     slug: "ojt",
-    title: "IT Support Specialist (OJT)", 
+    title: "IT Support Specialist (OJT)",
     issuer: "Fusion BPO Services Philippines Inc.",
     date: "May 2025 - Jul 2025",
     description: "Completed on-the-job training focusing on diagnostic testing, network configuration, and IT infrastructure maintenance.",
-    image: "/image/ojt-cert.svg" 
+    image: "/image/ojt-cert.jpg",
+    credentialUrl: "https://your-public-link-here.com"
+  },
+  { 
+    slug: "cisco", 
+    title: "Introduction to Packet Tracer", 
+    issuer: "Cisco Networking Academy",
+    date: "September 2024",
+    credentialUrl: "https://www.credly.com/badges/85bbbec6-7117-44ea-80c0-6d6251211ade/public_url"
   }
 ];
 
@@ -148,6 +171,4 @@ export const galleryImages = [
   "/image/gallery-7.jpg",
   "/image/gallery-8.jpg",
   "/image/gallery-9.jpg",
-  "/image/gallery-10.jpg",
-  "/image/gallery-11.jpg",
 ];

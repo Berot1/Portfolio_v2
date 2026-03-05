@@ -48,7 +48,7 @@ export default function Projects() {
                       <span 
                         key={tag}
                         // Changed from blue to green here:
-                        className="text-[10px] uppercase tracking-wider font-bold text-since-600 dark:text-sinc-400 bg-since-50 dark:bg-sinc-900/30 px-1.5 py-0.5 rounded whitespace-nowrap"
+                        className="text-[10px] uppercase tracking-wider font-bold text-zinc-600 dark:text-zinc-400 bg-zinc-50 dark:bg-zinc-900/30 px-1.5 py-0.5 rounded whitespace-nowrap"
                       >
                         {tag}
                       </span>

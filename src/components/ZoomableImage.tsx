@@ -43,7 +43,7 @@ export default function ZoomableImage({
   return (
     <>
       <div 
-        className={`relative cursor-zoom-in overflow-hidden group ${className}`} 
+        className={`relative cursor-pointer overflow-hidden group ${className}`} 
         onClick={() => setIsOpen(true)}
       >
         <Image 
