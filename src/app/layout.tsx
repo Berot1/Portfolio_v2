@@ -6,9 +6,9 @@ export const metadata: Metadata = {
   title: "Gil Bernard",
   description: "Portfolio of Gil Bernard, Software Engineer and creator of KneuraSense.",
   icons: {
-    icon: "/image/tabprofile.jpg",
-    shortcut: "/image/tabprofile.jpg",
-    apple: "/image/tabprofile.jpg",
+    icon: "/image/tabsprofile.jpg",
+    shortcut: "/image/tabsprofile.jpg",
+    apple: "/image/tabsprofile.jpg",
   },
 };
 
