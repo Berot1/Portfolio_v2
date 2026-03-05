@@ -47,7 +47,7 @@ export const experience = [
     {
     role: "Cebu Institute of Technology - University",  
     company: "Bachelor of Science in Computer Engineering",
-    year: "2025 - 2026",
+    year: "May 2026",
     highlight: true,
   },
   {
@@ -62,7 +62,7 @@ export const experience = [
   {
     role: "IT Support Specialist (OJT)",
     company: "Fusion BPO Services Philippines Inc.",
-    year: "May 2025 - Jul 2025",
+    year: "May - July 2025",
     achievements: [
       "Performed diagnostic testing and system checks on workstations, network devices, and peripherals to ensure operational integrity and user safety.",
       "Monitored and documented the delivery and inventory of IT equipment and consumables, ensuring accuracy and readiness for deployment.",
@@ -73,7 +73,7 @@ export const experience = [
   {
     role: "Hello World!",
     company: "Proudly wrote my very first line of code!",
-    year: "2022",
+    year: "November 2022",
   },
 ];
 
