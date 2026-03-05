@@ -28,7 +28,7 @@ export default function Hero() {
             
             {/* Name & Location */}
             <div>
-              <h1 className="text-3xl md:text-3xl font-extrabold text-zinc-900 dark:text-white flex items-center gap-2">
+              <h1 className="text-3xl md:text-3xl font-bold text-zinc-900 dark:text-white flex items-center gap-2">
                 {personalInfo.name}
                 {/* Verified Badge styling to match the reference */}
                 <BadgeCheck className="w-4 h-4 fill-blue-500 text-white dark:text-black" strokeWidth={1.5}/>

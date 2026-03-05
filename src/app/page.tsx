@@ -9,13 +9,13 @@ import Recommendations from '@/components/sections/Recommendations';
 import ConnectGrid from '@/components/sections/ConnectGrid';
 import Gallery from '@/components/sections/Gallery';
 import Footer from '@/components/layout/footer';
-import { MessageSquare } from 'lucide-react';
 import Chat from '@/components/Chat';
 
 // Reusable wrapper to create the structured "Bento Box" look
 function SectionBox({ children }: { children: React.ReactNode }) {
   return (
-    <div className="p-6 md:p-8 rounded-sm bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md border border-zinc-200/50 dark:border-zinc-800/50 transition-colors">
+    // Reduced padding from p-6 md:p-8 to p-5
+    <div className="p-5 rounded-sm bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md border border-zinc-200/50 dark:border-zinc-800/50 transition-colors">
       {children}
     </div>
   );
@@ -23,29 +23,26 @@ function SectionBox({ children }: { children: React.ReactNode }) {
 
 export default function Portfolio() {
   return (
-    <main className="max-w-[1000px] mx-auto px-6 py-12 md:py-16 flex flex-col gap-6">
+    <main className="max-w-[1000px] mx-auto px-6 py-8 md:py-12 flex flex-col gap-4">
       
-      {/* Hero Section (Unboxed for impact) */}
-      <div className="mb-4">
+      <div className="mb-2">
         <Hero />
       </div>
 
       {/* Top Section: Standard 2-Column Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Left Column */}
-        <div className="lg:col-span-7 xl:col-span-8 flex flex-col gap-6">
+        <div className="lg:col-span-7 xl:col-span-8 flex flex-col gap-4">
           <SectionBox><About /></SectionBox>
           <SectionBox><TechStack /></SectionBox>
           <SectionBox><Projects /></SectionBox>
         </div>
 
         {/* Right Column */}
-        <div className="lg:col-span-5 xl:col-span-4 flex flex-col gap-6">
-          <IDCard /> {/* IDCard provides its own specific box background */}
+        <div className="lg:col-span-5 xl:col-span-4 flex flex-col gap-4">
+          <IDCard />
           <SectionBox><Experience /></SectionBox>
         </div>
-        
       </div>
 
       {/* Middle Section: Certifications & Recommendations */}
@@ -60,7 +57,7 @@ export default function Portfolio() {
       {/* Full Width Bottom Section */}
       <SectionBox><Gallery /></SectionBox>
 
-      <div className="pt-15">
+      <div className="pt-10">
         <Footer />
       </div>
       
