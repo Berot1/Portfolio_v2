@@ -2,7 +2,7 @@ export const personalInfo = {
   name: "Gil Bernard F. Maglinte",
   role: "Software Engineer \\ IoT & Edge AI Researcher",
   location: "Hilongos, Eastern Visayas, Philippines",
-  email: "mgilbernard@gmaiil.com",
+  email: "mgilbernard@gmail.com",
   about: [
     "I'm a full-stack software engineer specializing in developing solutions that bridge web technologies and the Internet of Things. I focus on developing full-stack web applications and integrating them seamlessly with hardware and sensor modules.",
     "My work heavily involves architectural design, database management, and leveraging embedded systems to capture and process real-time data for advanced monitoring systems.",
@@ -13,62 +13,110 @@ export const personalInfo = {
 export const projects = [
   {
     title: "KneuraSense (Research Thesis)",
-    description: "An IoT wearable device utilizing Edge AI and IMU sensors to monitor and predict knee osteoarthritis risks. Features a full-stack dashboard powered by Next.js, Prisma, and PostgreSQL.",
-    link: "kneurasense.dev",
-    tags: ["Thesis", "Edge AI", "IoT"]
+    description: "An IoT wearable device utilizing Edge AI and sensors to monitor and predict knee osteoarthritis risks. Features a full-stack dashboard powered by Next.js, Prisma, and PostgreSQL.",
+    link: "kneura-sense-koa.vercel.app",
+    tags: ["Next.js", "Edge AI", "IoT", "XIAO ESP32-S3", "PostgreSQL"]
   },
   {
-    title: "Smart Environment Monitor",
-    description: "Real-time tracking of environmental data using ESP32-S3 and MQTT protocols with sub-second latency data pipelines.",
-    link: "github.com/gil/smart-env",
-    tags: ["Hardware", "MQTT"]
+    title: "Student Tracking System",
+    description: "A comprehensive N-Tier web application serving as a Learning Management and Student Information System. Features role-based portals for managing student enrollments, automated scheduling, and an interactive grading system.",
+    link: "github.com/loydamt/asi.basecode",
+    tags: ["C#", "ASP.NET Core", "MVC", "Entity Framework"]
+  },
+  {
+    title: "Smart Autonomous Fire Detection and Active Suppression System",
+    description: "An IoT-based fire safety platform for real-time hazard monitoring. I was responsible for the cloud infrastructure, setting up AWS IoT Core for device connectivity and developing AWS Lambda functions to trigger emergency email alerts via SES.",
+    link: "github.com/Berot1/Capstone-project-Zuitt/blob/main/Capstone-project/project%20files/BEC0017-maglinte-gilbernard.md",
+    tags: ["ESP32", "MQTT", "C++", "AWS IoT Core", "AWS Lambda", "AWS SES"]
+  },
+  {
+    title: "Portfolio v1.0",
+    description: "My first professional portfolio highlighting my journey as a computer engineering student. It showcases technical expertise in software development and system optimization through an interactive and responsive design.",
+    link: "gil-portfolio-v1.vercel.app",
+    tags: ["Next.js", "React", "JavaScript", "Tailwind CSS"]
+  },
+  {
+    title: "WILDFind",
+    description: "A lost and found tracking system for school environments. Originally developed as a C# Windows Forms application, now migrated to a modern web-based platform using React and Firebase for improved accessibility and real-time updates.",
+    link: "github.com/AspireSpartan/WILDFind_webapp",
+    tags: ["React", "Vite", "Firebase", "JavaScript", "HTML/CSS"]
   }
 ];
 
 export const experience = [
-  {
-    role: "IoT Research Developer",
-    company: "University Lab",
-    year: "2025",
-    achievements: [
-      "Designed and developed the KneuraSense wearable prototype using C++ and microcontrollers.",
-      "Implemented Edge AI models for real-time predictive healthcare analysis directly on device.",
-      "Architected the database schema and API integration using PostgreSQL and Prisma."
-    ],
+    {
+    role: "Cebu Institute of Technology - University",  
+    company: "Bachelor of Science in Computer Engineering",
+    year: "2025 - 2026",
     highlight: true,
   },
   {
-    role: "Software Engineer",
-    company: "Tech Solutions",
-    year: "2024",
+    role: "Jumpstart Trainee — C# Web Development",
+    company: "Alliance Software Inc.",
+    year: "December 2025",
     achievements: [
-      "Built and maintained scalable web applications using Next.js and TypeScript.",
-      "Engineered robust backend services with Node.js to support high-throughput sensor data.",
-      "Optimized database queries, reducing average API response times by 30%."
+      "Completed the intensive Jumpstart Training Program specializing in C# Web Development.",
+      "Gained hands-on experience in building, structuring, and deploying web applications."
+    ],
+  },
+  {
+    role: "IT Support Specialist (OJT)",
+    company: "Fusion BPO Services Philippines Inc.",
+    year: "May 2025 - Jul 2025",
+    achievements: [
+      "Performed diagnostic testing and system checks on workstations, network devices, and peripherals to ensure operational integrity and user safety.",
+      "Monitored and documented the delivery and inventory of IT equipment and consumables, ensuring accuracy and readiness for deployment.",
+      "Configured and maintained core network services, including FTP server, DNS records, and ticketing system to support secure access, issue tracking, and reliable domain resolution.",
+      "Collaborated with IT team members to integrate services into existing infrastructure, troubleshoot technical issues, and uphold service level standards."
     ]
   },
   {
-    role: "Full-Stack Developer",
-    company: "Freelance",
-    year: "2023",
-    achievements: [
-      "Delivered custom web and IoT solutions for clients.",
-      "Integrated hardware components like GPS modules and IMU sensors with web dashboards."
-    ]
-  }
+    role: "Hello World!",
+    company: "Proudly wrote my very first line of code!",
+    year: "2022",
+  },
 ];
 
 export const techStack = {
-  frontend: ["JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"],
-  backend: ["Node.js", "Python", "C++", "Prisma", "PostgreSQL"],
-  iot: ["ESP32-S3", "MQTT", "IMU Sensors", "GPS Modules", "Edge AI", "Circuit Design"]
+  "Frontend": [
+    "Next.js", "React", "Tailwind CSS", "HTML", "CSS", "JavaScript", 
+    "Vue.js", "Vite", "Webpack", "ESLint", "Prettier"
+  ],
+  "Backend & Cloud": [
+    "Node.js", "Python", "ASP.NET", "PostgreSQL", "Supabase", "Firebase", 
+    "Vercel", "AWS Lambda", "AWS IoT", "MQTT.js", "HiveMQ", "XIAO ESP32-S3", 
+    "JWT", "Zod", "Gemini", "OpenWeather", "SMTP"
+  ],
+  "Languages & Systems": [
+    "C", "C++", "C#", "Cisco", "MatLab"
+  ],
+  "Engineering & Design": [
+    "Arduino IDE", "Wokwi", "AutoCAD", "Fusion 360", "Inventor", 
+    "KiCad", "PCB Design", "3D Design", "Figma", "Canva"
+  ],
+  "Developer Tools": [
+    "Git", "GitHub", "VS Code", "Visual Studio", "Sourcetree", 
+    "ChatGPT", "Claude", "Copilot", "Discord", "Teams"
+  ]
 };
 
 export const certifications = [
-  { title: "Huawei Developer Expert", issuer: "Huawei" },
-  { title: "Generative AI Leader", issuer: "Google" },
-  { title: "Software Engineering", issuer: "TestDome" },
-  { title: "Generative AI Professional", issuer: "Oracle" }
+  { 
+    slug: "jumpstart",
+    title: "Jumpstart Training Program — C# Web Development", 
+    issuer: "Alliance Software Inc.",
+    date: "Dec 2025",
+    description: "Completed the intensive Jumpstart Training Program specializing in C# Web Development, gaining hands-on experience in building, structuring, and deploying web applications.",
+    image: "/image/jumpstart-cert.svg" 
+  },
+  { 
+    slug: "ojt",
+    title: "IT Support Specialist (OJT)", 
+    issuer: "Fusion BPO Services Philippines Inc.",
+    date: "May 2025 - Jul 2025",
+    description: "Completed on-the-job training focusing on diagnostic testing, network configuration, and IT infrastructure maintenance.",
+    image: "/image/ojt-cert.svg" 
+  }
 ];
 
 export const recommendations = [
@@ -80,12 +128,12 @@ export const recommendations = [
 ];
 
 export const affiliations = [
-  { name: "Analytics & Artificial Intelligence Association of the Philippines (AAP)", link: "#" },
-  { name: "Philippine Software Industry Association", link: "#" }
+  { name: "Google Developer Groups on Campus CIT-U (GDGoC - CITU)", link: "https://www.facebook.com/gdgoc.citu" },
+  { name: "Cebu Institute of Computer Engineers of the Philippines CIT-U Chapter (ICpEP.SE)", link: "https://www.facebook.com/cituicpep/" },
 ];
 
 export const socialLinks = [
-  { name: "LinkedIn", link: "#", icon: "Linkedin" },
-  { name: "GitHub", link: "#", icon: "Github" },
-  { name: "Instagram", link: "#", icon: "Instagram" }
+  { name: "LinkedIn", link: "https://www.linkedin.com/in/gil-bernard-maglinte-4a1a70358/", icon: "Linkedin" },
+  { name: "GitHub", link: "https://github.com/Berot1", icon: "Github" },
+  { name: "Instagram", link: "https://www.instagram.com/itsgilb__?igsh=YWU2aHZ2d3Blb2ps", icon: "Instagram" }
 ];
