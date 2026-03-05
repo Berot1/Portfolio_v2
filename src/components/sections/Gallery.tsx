@@ -63,7 +63,8 @@ export default function Gallery() {
             <div 
               key={`${src}-${idx}`}
               onClick={() => setSelectedIdx(idx % galleryImages.length)}
-              className="relative shrink-0 w-32 md:w-44 h-20 md:h-28 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.02] cursor-zoom-in"
+              // CHANGED: Replaced cursor-zoom-in with cursor-pointer right here
+              className="relative shrink-0 w-32 md:w-44 h-20 md:h-28 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.02] cursor-pointer"
             >
               <Image src={src} alt="" fill className="object-cover" sizes="(max-width: 768px) 128px, 176px" />
               <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors z-10 flex items-center justify-center">
@@ -77,7 +78,6 @@ export default function Gallery() {
       </div>
 
       {/* Full-Screen Lightbox View using React Portal */}
-      {/* We check typeof document !== 'undefined' to safely render the portal only on the client */}
       {typeof document !== 'undefined' && selectedIdx !== null && createPortal(
         <div 
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-zinc-900/95 p-4 animate-in fade-in duration-200"

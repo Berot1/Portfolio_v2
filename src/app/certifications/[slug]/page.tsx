@@ -54,7 +54,8 @@ export default async function CertificationViewer({ params }: { params: Promise<
         <ZoomableImage 
           src={cert.image}
           alt={`${cert.title} Certificate`}
-          className="w-full aspect-[1.4/1]" 
+          // CHANGED: Added !cursor-pointer to override the default zoom cursor
+          className="w-full aspect-[1.4/1] !cursor-pointer" 
           imageClassName="object-contain drop-shadow-sm" // Pure object-contain with no padding
         />
       </div>
