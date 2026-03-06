@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Gil Bernard F. Maglinte",
-  role: "Software Engineer \\ IoT & Edge AI Researcher",
+  role: "Computer Engineer \\ Software Engineer \\ AI Enthusiast",
   location: "Cebu City, Central Visayas, Philippines",
   email: "mgilbernard@gmail.com",
   about: [

@@ -23,7 +23,7 @@ export default function GalleryPage() {
       </div>
 
       {/* 2-Column Grid Layout matching the provided design */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+      <div className="grid grid-cols-3 sm:grid-cols-3 gap-4 md:gap-6">
         {galleryImages.map((src, idx) => (
           <div 
             key={`${src}-${idx}`}
