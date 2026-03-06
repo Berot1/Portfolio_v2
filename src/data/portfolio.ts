@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: "Gil Bernard F. Maglinte",
   role: "Software Engineer \\ IoT & Edge AI Researcher",
-  location: "Hilongos, Eastern Visayas, Philippines",
+  location: "Cebu City, Central Visayas, Philippines",
   email: "mgilbernard@gmail.com",
   about: [
     "I'm a full-stack software engineer specializing in developing solutions that bridge web technologies and the Internet of Things. I focus on developing full-stack web applications and integrating them seamlessly with hardware and sensor modules.",
@@ -102,32 +102,44 @@ export const techStack = {
 
 export const certifications = [
   { 
+    slug: "career-essentials-in-generative-ai", 
+    title: "Career Essentials in Generative AI by Microsoft and LinkedIn", 
+    issuer: "Microsoft", 
+    date: "Mar 2026",
+    credentialUrl: "https://www.linkedin.com/learning/certificates/49d3149f9c339423ae3366724a27bb6117fe6b5e02217ed0b78fb0dd0fa5c1c0?trk=share_certificate",
+    icon: "/icons/microsoft.webp"
+  },
+  { 
     slug: "introduction-to-modern-ai", 
     title: "Introduction to Modern AI", 
     issuer: "Cisco", 
     date: "Mar 2026",
-    credentialUrl: "https://www.credly.com/badges/8e5bbf76-a078-45b9-9bfd-597b2cf9deeb/public_url"
+    credentialUrl: "https://www.credly.com/badges/8e5bbf76-a078-45b9-9bfd-597b2cf9deeb/public_url",
+    icon: "/icons/cisco-icon.webp"
   },
   { 
     slug: "graphic-design-essentials", 
     title: "Graphic Design Essentials", 
     issuer: "Canva", 
     date: "Mar 2026",
-    credentialUrl: "https://www.canva.com/design-school/certification-award/71f9d516-305c-4fb9-9092-f5c8ca29dbb6?"
+    credentialUrl: "https://www.canva.com/design-school/certification-award/71f9d516-305c-4fb9-9092-f5c8ca29dbb6?",
+    icon: "/icons/canva-icon.webp"
 },
   { 
     slug: "Monitoring-AWS", 
     title: "Introduction to Monitoring AWS", 
     issuer: "Datadog", 
     date: "Feb 2026",
-    credentialUrl: "https://learn.datadoghq.com/certificates/cqrngxkbzo"
+    credentialUrl: "https://learn.datadoghq.com/certificates/cqrngxkbzo",
+    icon: "/icons/datadog.webp"
   },
   { 
     slug: "Cloud-SIEM", 
     title: "Introduction to Cloud SIEM", 
     issuer: "Datadog", 
     date: "Feb 2026",
-    credentialUrl: "https://learn.datadoghq.com/certificates/irgl0w0zue"
+    credentialUrl: "https://learn.datadoghq.com/certificates/irgl0w0zue",
+    icon: "/icons/datadog.webp"
   },
   { 
     slug: "jumpstart",
@@ -136,7 +148,8 @@ export const certifications = [
     date: "Dec 2025",
     description: "Completed the intensive Jumpstart Training Program specializing in C# Web Development, gaining hands-on experience in building, structuring, and deploying web applications.",
     image: "/image/jumpstart-cert.jpg",
-    credentialUrl: "https://your-public-link-here.com"
+    credentialUrl: "https://your-public-link-here.com",
+    icon: "/icons/alliance-soft-inc.webp"
   },
   { 
     slug: "ojt",
@@ -145,14 +158,16 @@ export const certifications = [
     date: "May 2025 - Jul 2025",
     description: "Completed on-the-job training focusing on diagnostic testing, network configuration, and IT infrastructure maintenance.",
     image: "/image/ojt-cert.jpg",
-    credentialUrl: "https://your-public-link-here.com"
+    credentialUrl: "https://your-public-link-here.com",
+    icon: "/icons/fusion-bpo-cx.webp"
   },
   { 
     slug: "cisco", 
     title: "Introduction to Packet Tracer", 
     issuer: "Cisco Networking Academy",
     date: "September 2024",
-    credentialUrl: "https://www.credly.com/badges/85bbbec6-7117-44ea-80c0-6d6251211ade/public_url"
+    credentialUrl: "https://www.credly.com/badges/85bbbec6-7117-44ea-80c0-6d6251211ade/public_url",
+    icon: "/icons/cisco-icon.webp"
   }
 ];
 
@@ -170,9 +185,9 @@ export const affiliations = [
 ];
 
 export const socialLinks = [
-  { name: "LinkedIn", link: "https://www.linkedin.com/in/gil-bernard-maglinte-4a1a70358/", icon: "Linkedin" },
-  { name: "GitHub", link: "https://github.com/Berot1", icon: "Github" },
-  { name: "Instagram", link: "https://www.instagram.com/itsgilb__?igsh=YWU2aHZ2d3Blb2ps", icon: "Instagram" }
+  { name: "LinkedIn", link: "https://www.linkedin.com/in/gil-bernard-maglinte-4a1a70358/", icon: "/icons/linkedin.webp" },
+  { name: "GitHub", link: "https://github.com/Berot1", icon: "/icons/github-icon.webp" },
+  { name: "Instagram", link: "https://www.instagram.com/itsgilb__?igsh=YWU2aHZ2d3Blb2ps", icon: "/icons/instagram-icon.webp" }
 ];
 
 export const galleryImages = [

@@ -1,6 +1,7 @@
 import React from 'react';
 import { certifications } from '@/data/portfolio';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ExternalLink } from 'lucide-react';
 
 export default function Certifications() {
@@ -35,16 +36,34 @@ export default function Certifications() {
               href={targetHref}
               target={isExternal ? "_blank" : "_self"}
               rel={isExternal ? "noopener noreferrer" : ""}
-              className="block px-4 py-3 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-sm hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-all hover:border-zinc-300 dark:hover:border-zinc-600 hover:shadow-sm cursor-pointer"
+              className="block px-4 py-3 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-sm hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-all hover:border-zinc-300 dark:hover:border-zinc-600 hover:shadow-sm cursor-pointer group"
             >
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="font-bold text-zinc-900 dark:text-white text-sm">{cert.title}</h3>
-                  <p className="text-xs text-zinc-500 mt-0.5">{cert.issuer}</p>
-                </div>
-                {isExternal && (
-                  <ExternalLink className="w-3.5 h-3.5 text-zinc-400 mt-1" />
+              <div className="flex gap-3 items-center">
+                
+                {/* Icon Container - Only renders if the icon property exists */}
+                {cert.icon && (
+                  <div className="w-10 h-10 shrink-0 bg-white dark:bg-black border border-zinc-100 dark:border-zinc-800 rounded-lg flex items-center justify-center p-1.5 shadow-sm">
+                    <Image 
+                      src={cert.icon} 
+                      alt={`${cert.issuer} logo`} 
+                      width={28} 
+                      height={28} 
+                      className="object-contain"
+                    />
+                  </div>
                 )}
+
+                {/* Text Content */}
+                <div className="flex-1 flex justify-between items-start">
+                  <div>
+                    <h3 className="font-bold text-zinc-900 dark:text-white text-sm line-clamp-1">{cert.title}</h3>
+                    <p className="text-xs text-zinc-500 mt-0.5">{cert.issuer}</p>
+                  </div>
+                  {isExternal && (
+                    <ExternalLink className="w-3.5 h-3.5 text-zinc-400 mt-1 shrink-0 ml-3 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors" />
+                  )}
+                </div>
+                
               </div>
             </Link>
           );

@@ -1,8 +1,7 @@
 import React from 'react';
 import { affiliations, socialLinks, personalInfo } from '@/data/portfolio';
-import { ExternalLink, Linkedin, Github, Instagram, Mail, Calendar, ChevronRight, LucideIcon } from 'lucide-react';
-
-const IconMap: Record<string, LucideIcon> = { Linkedin, Github, Instagram };
+import { ExternalLink, Mail, Calendar, ChevronRight } from 'lucide-react';
+import Image from 'next/image'; 
 
 export default function ConnectGrid() {
   return (
@@ -29,19 +28,26 @@ export default function ConnectGrid() {
       <div className="space-y-4">
         <h3 className="font-bold text-zinc-900 dark:text-white text-sm">Social Links</h3>
         <div className="space-y-1 text-sm">
-          {socialLinks.map((item, i) => {
-            const Icon = IconMap[item.icon];
-            return (
-              <a 
-                key={i} 
-                href={item.link} 
-                className="flex items-center gap-3 p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-sm relative z-10"
-              >
-                {Icon && <Icon className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />}
-                <span className="font-bold text-zinc-900 dark:text-white">{item.name}</span>
-              </a>
-            );
-          })}
+          {socialLinks.map((item, i) => (
+            <a 
+              key={i} 
+              href={item.link} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-sm relative z-10"
+            >
+              {/* Updated to use Next.js Image */}
+              <div className="relative w-5 h-5 shrink-0">
+                <Image 
+                  src={item.icon} 
+                  alt={`${item.name} icon`} 
+                  fill 
+                  className="object-contain" 
+                />
+              </div>
+              <span className="font-bold text-zinc-900 dark:text-white">{item.name}</span>
+            </a>
+          ))}
         </div>
       </div>
 
@@ -52,8 +58,8 @@ export default function ConnectGrid() {
           <a href={`mailto:${personalInfo.email}`} className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-lg relative z-10">
             <div>
               <div className="flex items-center gap-2 mb-0.5">
-                <Mail className="w-3.5 h-3.5 text-zinc-500" />
-                <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Email</span>
+                <Mail className="w-3.5 h-3.5 text-zinc-800" />
+                <span className="text-[10px] text-zinc-800 font-bold uppercase tracking-wider">Email</span>
               </div>
               <p className="text-xs font-bold text-zinc-900 dark:text-white">{personalInfo.email}</p>
             </div>
@@ -62,8 +68,8 @@ export default function ConnectGrid() {
           <a href="#" className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-lg relative z-10">
             <div>
               <div className="flex items-center gap-2 mb-0.5">
-                <Calendar className="w-3.5 h-3.5 text-zinc-500" />
-                <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Let&apos;s Talk</span>
+                <Calendar className="w-3.5 h-3.5 text-zinc-800" />
+                <span className="text-[10px] text-zinc-800 font-bold uppercase tracking-wider">Let&apos;s Talk</span>
               </div>
               <p className="text-xs font-bold text-zinc-900 dark:text-white">Schedule a Call</p>
             </div>

@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import { X, Maximize2, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { galleryImages } from '@/data/portfolio';
+import Link from 'next/link';
 
 export default function Gallery() {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
@@ -54,6 +55,12 @@ export default function Gallery() {
     <section className="space-y-3 overflow-hidden">
       <div className="flex items-center justify-between px-1">
         <h2 className="text-lg font-bold uppercase tracking-wider text-black dark:text-zinc-400">Gallery</h2>
+        <Link 
+          href="/gallery" 
+          className="text-sm text-zinc-600 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+        >
+          View All &gt;
+        </Link>
       </div>
       
       {/* Thumbnail Scrolling View */}

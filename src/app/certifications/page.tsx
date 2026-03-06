@@ -1,6 +1,8 @@
+// src/app/certifications/page.tsx
 import React from 'react';
 import { certifications } from '@/data/portfolio';
 import Link from 'next/link';
+import Image from 'next/image'; // <-- Import Image
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 
 export default function CertificationsPage() {
@@ -32,19 +34,43 @@ export default function CertificationsPage() {
               key={cert.slug} 
               href={targetHref}
               target={isExternal ? "_blank" : "_self"}
-              className="flex flex-col p-6 bg-white dark:bg-zinc-900/40 border border-zinc-100 dark:border-zinc-800 rounded-sm hover:shadow-sm hover:border-zinc-200 dark:hover:border-zinc-700 transition-all cursor-pointer"
+              className="flex flex-col justify-between p-6 bg-white dark:bg-zinc-900/40 border border-zinc-100 dark:border-zinc-800 rounded-sm hover:shadow-sm hover:border-zinc-200 dark:hover:border-zinc-700 transition-all cursor-pointer group"
             >
-              <div className="flex justify-between items-start mb-2">
-                <h2 className="font-bold text-[17px] text-black dark:text-white">
-                  {cert.title}
-                </h2>
-                {isExternal && (
-                  <ExternalLink className="w-4 h-4 text-zinc-500 shrink-0 ml-2" />
+              <div className="flex gap-4 items-start mb-4">
+                {/* Icon Container */}
+                {cert.icon ? (
+                  <div className="w-14 h-14 shrink-0 bg-white dark:bg-black border border-zinc-100 dark:border-zinc-800 rounded-lg flex items-center justify-center p-2">
+                    <Image 
+                      src={cert.icon} 
+                      alt={`${cert.issuer} logo`} 
+                      width={40} 
+                      height={40} 
+                      className="object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-14 h-14 shrink-0 bg-zinc-100 dark:bg-zinc-800 rounded-sm" />
                 )}
+
+                {/* Text Content */}
+                <div>
+                  <h2 className="font-bold text-sm text-black dark:text-white leading-snug">
+                    {cert.title}
+                  </h2>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+                    {cert.issuer}
+                  </p>
+                  <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-0.5">
+                    {cert.date}
+                  </p>
+                </div>
               </div>
-              <p className="text-sm text-black dark:text-zinc-400">
-                {cert.issuer}
-              </p>
+
+              {/* Bottom Action Link */}
+              <div className="flex justify-end items-center text-xs text-zinc-500 group-hover:text-zinc-900 dark:group-hover:text-zinc-300 transition-colors">
+                <ExternalLink className="w-3.5 h-3.5 mr-1.5" />
+                {isExternal ? "View Certificate" : "View Details"}
+              </div>
             </Link>
           );
         })}
