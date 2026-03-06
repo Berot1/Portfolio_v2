@@ -102,6 +102,20 @@ export const techStack = {
 
 export const certifications = [
   { 
+    slug: "introduction-to-modern-ai", 
+    title: "Introduction to Modern AI", 
+    issuer: "Cisco", 
+    date: "Mar 2026",
+    credentialUrl: "https://www.credly.com/badges/8e5bbf76-a078-45b9-9bfd-597b2cf9deeb/public_url"
+  },
+  { 
+    slug: "graphic-design-essentials", 
+    title: "Graphic Design Essentials", 
+    issuer: "Canva", 
+    date: "Mar 2026",
+    credentialUrl: "https://www.canva.com/design-school/certification-award/71f9d516-305c-4fb9-9092-f5c8ca29dbb6?"
+},
+  { 
     slug: "Monitoring-AWS", 
     title: "Introduction to Monitoring AWS", 
     issuer: "Datadog", 
