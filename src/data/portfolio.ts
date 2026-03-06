@@ -102,6 +102,14 @@ export const techStack = {
 
 export const certifications = [
   { 
+    slug: "google-ai-essentials", 
+    title: "Google AI Essentials", 
+    issuer: "Google", 
+    date: "Mar 2026",
+    credentialUrl: "https://coursera.org/share/505d64e8b0fd6d5c3144c42e78425280", 
+    icon: "/icons/google.webp"
+  },
+  { 
     slug: "career-essentials-in-generative-ai", 
     title: "Career Essentials in Generative AI by Microsoft and LinkedIn", 
     issuer: "Microsoft", 
