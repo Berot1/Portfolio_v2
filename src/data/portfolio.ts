@@ -126,6 +126,14 @@ export const certifications = [
     icon: "/icons/cisco-icon.webp"
   },
   { 
+    slug: "career-essentials-in-software-development", 
+    title: "Career Essentials in Software Development", 
+    issuer: "Microsoft", 
+    date: "Mar 2026",
+    credentialUrl: "https://www.linkedin.com/learning/certificates/49d3149f9c339423ae3366724a27bb6117fe6b5e02217ed0b78fb0dd0fa5c1c0?trk=share_certificate",
+    icon: "/icons/microsoft.webp"
+  },
+  { 
     slug: "graphic-design-essentials", 
     title: "Graphic Design Essentials", 
     issuer: "Canva", 
