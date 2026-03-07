@@ -16,7 +16,7 @@ export const projects = [
     description: "An IoT wearable device utilizing Edge AI and sensors to monitor and predict knee osteoarthritis risks. Features a full-stack dashboard powered by Next.js, Prisma, and PostgreSQL.",
     link: "kneura-sense-koa.vercel.app",
     tags: ["Next.js", "Edge AI", "IoT", "XIAO ESP32-S3", "PostgreSQL"],
-    image: "/projects/KneuraSense.png",
+    image: "/projects/KneuraSense-image.png",
     category: "IoT"
   },
   {
