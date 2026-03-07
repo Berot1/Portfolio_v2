@@ -8,8 +8,6 @@ const CARD_BASE = "block rounded-sm transition-all border h-full cursor-pointer 
 const CARD_LIGHT = "bg-white border-zinc-100 hover:bg-zinc-50 hover:border-zinc-300";
 const CARD_DARK = "dark:bg-zinc-900 dark:border-zinc-800 dark:hover:bg-zinc-800/50 dark:hover:border-zinc-600";
 
-type ProjectWithImage = typeof projects[number] & { image?: string };
-
 // Helper function to determine label and icon based on URL
 const getLinkDetails = (url: string) => {
   if (url.includes('github.com')) return { label: 'source', Icon: Github };
@@ -36,9 +34,8 @@ export default function ProjectsPage() {
       </div>
 
       {/* Full Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {projects.map((p) => {
-          const project = p as ProjectWithImage;
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {projects.map((project) => {
           const { label, Icon } = getLinkDetails(project.link);
           
           return (
@@ -50,18 +47,20 @@ export default function ProjectsPage() {
               className={`${CARD_BASE} ${CARD_LIGHT} ${CARD_DARK}`}
               aria-label={`View ${project.title} project`}
             >
-              {/* Image Container */}
-              <div className="relative w-full h-48 bg-zinc-100 dark:bg-zinc-800/50 border-b border-zinc-100 dark:border-zinc-800 shrink-0">
+              {/* Image Container with 16:9 Aspect Ratio */}
+              <div className="relative w-full aspect-video bg-zinc-100 dark:bg-zinc-800/50 border-b border-zinc-200 dark:border-zinc-800/80 shrink-0 overflow-hidden">
                 {project.image ? (
                   <Image 
                     src={project.image} 
                     alt={`${project.title} thumbnail`}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-zinc-300 dark:text-zinc-700">
-                    <ImageIcon className="w-8 h-8 opacity-50" />
+                  <div className="w-full h-full flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-600 gap-2">
+                    <ImageIcon className="w-8 h-8 opacity-20" />
+                    <span className="text-[10px] uppercase tracking-tighter font-semibold opacity-30">No Preview Available</span>
                   </div>
                 )}
               </div>
@@ -73,10 +72,8 @@ export default function ProjectsPage() {
                   {project.description}
                 </p>
                 
-                {/* Footer Section (Tags and Link Label) */}
+                {/* Footer Section */}
                 <div className="flex items-center justify-between pt-2 border-t border-zinc-200 dark:border-zinc-800 mt-auto">
-                  
-                  {/* Dynamic Link Label Badge with Icon */}
                   <span className="flex items-center gap-1.5 px-2 py-1 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-[10px] uppercase tracking-wider font-bold text-zinc-500 dark:text-zinc-400 rounded mr-2">
                     <Icon className="w-3 h-3" />
                     {label}

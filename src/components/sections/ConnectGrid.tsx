@@ -53,31 +53,39 @@ export default function ConnectGrid() {
 
       {/* 3. Quick Actions */}
       <div className="space-y-4">
-        <h3 className="font-bold text-zinc-900 dark:text-white text-sm">Quick Actions</h3>
-        <div className="space-y-1">
-          <a href={`mailto:${personalInfo.email}`} className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-lg relative z-10">
+        <h3 className="font-bold text-zinc-900 dark:text-zinc-100 text-sm">Quick Actions</h3>
+        <div className="space-y-2">
+          
+          {/* Email Action */}
+          <a 
+            href={`mailto:${personalInfo.email}`} 
+            className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-lg relative z-10"
+          >
             <div>
               <div className="flex items-center gap-2 mb-0.5">
-                <Mail className="w-3.5 h-3.5 text-zinc-800" />
-                <span className="text-[10px] text-zinc-800 font-bold uppercase tracking-wider">Email</span>
+                <Mail className="w-3.5 h-3.5 text-zinc-500 dark:text-zinc-400" />
+                <span className="text-[10px] text-zinc-500 dark:text-zinc-400 font-bold uppercase tracking-wider">Email</span>
               </div>
               <p className="text-xs font-bold text-zinc-900 dark:text-white">{personalInfo.email}</p>
             </div>
           </a>
           
-          <a href="#" className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-lg relative z-10">
+          {/* Schedule Action */}
+          <a 
+            href="#" 
+            className="flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors rounded-lg relative z-10"
+          >
             <div>
               <div className="flex items-center gap-2 mb-0.5">
-                <Calendar className="w-3.5 h-3.5 text-zinc-800" />
-                <span className="text-[10px] text-zinc-800 font-bold uppercase tracking-wider">Let&apos;s Talk</span>
+                <Calendar className="w-3.5 h-3.5 text-zinc-500 dark:text-zinc-400" />
+                <span className="text-[10px] text-zinc-500 dark:text-zinc-400 font-bold uppercase tracking-wider">Let&apos;s Talk</span>
               </div>
               <p className="text-xs font-bold text-zinc-900 dark:text-white">Schedule a Call</p>
             </div>
-            <ChevronRight className="w-4 h-4 text-zinc-300" />
+            <ChevronRight className="w-4 h-4 text-zinc-300 dark:text-zinc-600" />
           </a>
         </div>
       </div>
-
     </div>
   );
 }

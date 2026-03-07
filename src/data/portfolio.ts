@@ -15,31 +15,41 @@ export const projects = [
     title: "KneuraSense (Research Thesis)",
     description: "An IoT wearable device utilizing Edge AI and sensors to monitor and predict knee osteoarthritis risks. Features a full-stack dashboard powered by Next.js, Prisma, and PostgreSQL.",
     link: "kneura-sense-koa.vercel.app",
-    tags: ["Next.js", "Edge AI", "IoT", "XIAO ESP32-S3", "PostgreSQL"]
+    tags: ["Next.js", "Edge AI", "IoT", "XIAO ESP32-S3", "PostgreSQL"],
+    image: "/projects/KneuraSense.png",
+    category: "IoT"
   },
   {
     title: "Student Tracking System",
     description: "A comprehensive N-Tier web application serving as a Learning Management and Student Information System. Features role-based portals for managing student enrollments, automated scheduling, and an interactive grading system.",
     link: "github.com/loydamt/asi.basecode",
-    tags: ["C#", "ASP.NET Core", "MVC", "Entity Framework"]
+    tags: ["C#", "ASP.NET Core", "MVC", "Entity Framework"],
+    image: "/projects/Learnoxa.png",
+    category: "Web App"
   },
   {
     title: "Smart Autonomous Fire Detection and Active Suppression System",
     description: "An IoT-based fire safety platform for real-time hazard monitoring. I was responsible for the cloud infrastructure, setting up AWS IoT Core for device connectivity and developing AWS Lambda functions to trigger emergency email alerts via SES.",
     link: "github.com/Berot1/Capstone-project-Zuitt/blob/main/Capstone-project/project%20files/BEC0017-maglinte-gilbernard.md",
-    tags: ["ESP32", "MQTT", "C++", "AWS IoT Core", "AWS Lambda", "AWS SES"]
+    tags: ["ESP32", "MQTT", "C++", "AWS IoT Core", "AWS Lambda", "AWS SES"],
+    image: "/projects/Fire.png",
+    category: "Embedded"
   },
   {
     title: "Portfolio v1.0",
     description: "My first professional portfolio highlighting my journey as a computer engineering student. It showcases technical expertise in software development and system optimization through an interactive and responsive design.",
     link: "gil-portfolio-v1.vercel.app",
-    tags: ["Next.js", "React", "JavaScript", "Tailwind CSS"]
+    tags: ["Next.js", "React", "JavaScript", "Tailwind CSS"],
+    image: "/projects/portfolio-v1.png",
+    category: "Web"
   },
   {
     title: "WILDFind",
     description: "A lost and found tracking system for school environments. Originally developed as a C# Windows Forms application, now migrated to a modern web-based platform using React and Firebase for improved accessibility and real-time updates.",
     link: "github.com/AspireSpartan/WILDFind_webapp",
-    tags: ["React", "Vite", "Firebase", "JavaScript", "HTML/CSS"]
+    tags: ["React", "Vite", "Firebase", "JavaScript", "HTML/CSS"],
+    image: "/projects/wildfind.png",
+    category: "Software"
   }
 ];
 
@@ -102,6 +112,14 @@ export const techStack = {
 
 export const certifications = [
   { 
+    slug: "getting-started-with-ai-on-jetson-nano", 
+    title: "Getting Started with AI on Jetson Nano", 
+    issuer: "NVIDIA", 
+    date: "Mar 2026",
+    credentialUrl: "https://learn.nvidia.com/certificates?id=W_8mYBxtTSutdPte7lj4Bg", 
+    icon: "/icons/nvidia.webp"
+  },
+  { 
     slug: "google-ai-essentials", 
     title: "Google AI Essentials", 
     issuer: "Google", 
@@ -139,7 +157,7 @@ export const certifications = [
     issuer: "Canva", 
     date: "Mar 2026",
     credentialUrl: "https://www.canva.com/design-school/certification-award/71f9d516-305c-4fb9-9092-f5c8ca29dbb6?",
-    icon: "/icons/canva-icon.webp"
+    icon: "/icons/canva-logo.webp"
 },
   { 
     slug: "Monitoring-AWS", 
@@ -202,7 +220,7 @@ export const affiliations = [
 
 export const socialLinks = [
   { name: "LinkedIn", link: "https://www.linkedin.com/in/gil-bernard-maglinte-4a1a70358/", icon: "/icons/linkedin.webp" },
-  { name: "GitHub", link: "https://github.com/Berot1", icon: "/icons/github-icon.webp" },
+  { name: "GitHub", link: "https://github.com/Berot1", icon: "/icons/github-.webp" },
   { name: "Instagram", link: "https://www.instagram.com/itsgilb__?igsh=YWU2aHZ2d3Blb2ps", icon: "/icons/instagram-icon.webp" }
 ];
 
