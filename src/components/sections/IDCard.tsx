@@ -68,7 +68,7 @@ export default function IDCard() {
             </div>
           </div>
 
-          <Activity className="w-8 h-8 text-orange-500 dark:text-zinc-700 opacity-60" strokeWidth={1.5} />
+          <Activity className="w-8 h-8 text-orange-500 dark:text-orange-500 opacity-60" strokeWidth={1.5} />
         </div>
         
       </div>

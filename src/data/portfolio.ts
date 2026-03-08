@@ -13,7 +13,7 @@ export const personalInfo = {
 export const projects = [
   {
     title: "KneuraSense (Research Thesis)",
-    description: "An IoT wearable device utilizing Edge AI and sensors to monitor and predict knee osteoarthritis risks. Features a full-stack dashboard powered by Next.js, Prisma, and PostgreSQL.",
+    description: "An IoT wearable device utilizing Edge AI and sensors to monitor and predict knee osteoarthritis risks. Features a full-stack dashboard powered by Next.js, Prisma, and PostgreSQL, includes an AI chat feature to help patients and clinicians.",
     link: "kneura-sense-koa.vercel.app",
     tags: ["Next.js", "Edge AI", "IoT", "XIAO ESP32-S3", "PostgreSQL"],
     image: "/projects/KneuraSense.png",
@@ -88,25 +88,22 @@ export const experience = [
 ];
 
 export const techStack = {
-  "Frontend": [
-    "Next.js", "React", "Tailwind CSS", "HTML", "CSS", "JavaScript", 
-    "Vue.js", "Vite", "Webpack", "ESLint", "Prettier"
+  "Frontend & UI": [
+    "Next.js", "React", "Tailwind CSS", "JavaScript", "HTML", "CSS", "Figma", "Canva"
   ],
   "Backend & Cloud": [
-    "Node.js", "Python", "ASP.NET", "PostgreSQL", "Supabase", "Firebase", 
-    "Vercel", "AWS Lambda", "AWS IoT", "MQTT.js", "HiveMQ", "XIAO ESP32-S3", 
-    "JWT", "Zod", "Gemini", "OpenWeather", "SMTP"
+    "Node.js", "ASP.NET", "PostgreSQL", "Supabase", 
+    "Vercel", "AWS Lambda", "Gemini API", "OpenWeather API"
   ],
-  "Languages & Systems": [
-    "C", "C++", "C#", "Cisco", "MatLab"
+  "IoT & Embedded": [
+    "C", "C++", "XIAO ESP32-S3", "AWS IoT", "MQTT.js", "HiveMQ", "Arduino IDE", "Wokwi", "PlatformIO"
   ],
-  "Engineering & Design": [
-    "Arduino IDE", "Wokwi", "AutoCAD", "Fusion 360", "Inventor", 
-    "KiCad", "PCB Design", "3D Design", "Figma", "Canva"
+  "Hardware & Engineering": [
+    "KiCad", "PCB Design", "Fusion 360", "AutoCAD", "Inventor", "3D Design", "MatLab"
   ],
-  "Developer Tools": [
-    "Git", "GitHub", "VS Code", "Visual Studio", "Sourcetree", 
-    "ChatGPT", "Claude", "Copilot", "Discord", "Teams"
+  "Tools & Architecture": [
+    "Git", "GitHub", "VS Code", "Visual Studio", "C#", "Cisco", "Vite",
+    "JWT", "Zod", "ESLint", "Prisma", "Vercel", "Edge Impulse"
   ]
 };
 
@@ -142,14 +139,6 @@ export const certifications = [
     date: "Mar 2026",
     credentialUrl: "https://www.credly.com/badges/8e5bbf76-a078-45b9-9bfd-597b2cf9deeb/public_url",
     icon: "/icons/cisco-icon.webp"
-  },
-  { 
-    slug: "career-essentials-in-software-development", 
-    title: "Career Essentials in Software Development", 
-    issuer: "Microsoft", 
-    date: "Mar 2026",
-    credentialUrl: "https://www.linkedin.com/learning/certificates/49d3149f9c339423ae3366724a27bb6117fe6b5e02217ed0b78fb0dd0fa5c1c0?trk=share_certificate",
-    icon: "/icons/microsoft.webp"
   },
   { 
     slug: "graphic-design-essentials", 
@@ -222,16 +211,4 @@ export const socialLinks = [
   { name: "LinkedIn", link: "https://www.linkedin.com/in/gil-bernard-maglinte-4a1a70358/", icon: "/icons/linkedin.webp" },
   { name: "GitHub", link: "https://github.com/Berot1", icon: "/icons/github-.webp" },
   { name: "Instagram", link: "https://www.instagram.com/itsgilb__?igsh=YWU2aHZ2d3Blb2ps", icon: "/icons/instagram-icon.webp" }
-];
-
-export const galleryImages = [
-  "/image/gallery-1.jpg",
-  "/image/gallery-2.jpg",
-  "/image/gallery-3.jpg",
-  "/image/gallery-4.jpg",
-  "/image/gallery-5.jpg",
-  "/image/gallery-6.jpg",
-  "/image/gallery-7.jpg",
-  "/image/gallery-8.jpg",
-  "/image/gallery-9.jpg",
 ];

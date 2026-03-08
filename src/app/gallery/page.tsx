@@ -1,10 +1,12 @@
 import React from 'react';
-import { galleryImages } from '@/data/portfolio';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import ZoomableImage from '@/components/ZoomableImage';
+import { getGalleryImages } from '@/utils/getGalleryImages';
 
 export default function GalleryPage() {
+  const dynamicGalleryImages = getGalleryImages();
+
   return (
     <main className="max-w-[1000px] mx-auto px-6 py-12 md:py-16 flex flex-col gap-10">
       
@@ -24,7 +26,7 @@ export default function GalleryPage() {
 
       {/* 2-Column Grid Layout matching the provided design */}
       <div className="grid grid-cols-3 sm:grid-cols-3 gap-4 md:gap-6">
-        {galleryImages.map((src, idx) => (
+        {dynamicGalleryImages.map((src, idx) => (
           <div 
             key={`${src}-${idx}`}
             className="relative w-full aspect-video rounded-sm overflow-hidden bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-800"

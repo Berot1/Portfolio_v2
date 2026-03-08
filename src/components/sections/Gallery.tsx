@@ -4,10 +4,13 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Maximize2, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
-import { galleryImages } from '@/data/portfolio';
 import Link from 'next/link';
 
-export default function Gallery() {
+interface GalleryProps {
+  galleryImages: string[];
+}
+
+export default function Gallery({ galleryImages }: GalleryProps) {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
 
   // Triple the array for seamless scrolling animation in the thumbnail view
@@ -17,13 +20,13 @@ export default function Gallery() {
     if (e) e.stopPropagation();
     if (selectedIdx === null) return;
     setSelectedIdx((prev) => (prev! - 1 + galleryImages.length) % galleryImages.length);
-  }, [selectedIdx]);
+  }, [selectedIdx, galleryImages.length]);
 
   const handleNext = useCallback((e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
     if (selectedIdx === null) return;
     setSelectedIdx((prev) => (prev! + 1) % galleryImages.length);
-  }, [selectedIdx]);
+  }, [selectedIdx, galleryImages.length]);
 
   const handleClose = useCallback(() => {
     setSelectedIdx(null);
@@ -51,10 +54,13 @@ export default function Gallery() {
     };
   }, [selectedIdx, handlePrev, handleNext, handleClose]);
 
+  // Handle empty state gracefully
+  if (!galleryImages || galleryImages.length === 0) return null;
+
   return (
     <section className="space-y-3 overflow-hidden">
       <div className="flex items-center justify-between px-1">
-        <h2 className="text-lg font-bold uppercase tracking-wider text-black dark:text-zinc-400">Gallery</h2>
+        <h2 className="text-lg font-bold tracking-wider text-black dark:text-zinc-400">Gallery</h2>
         <Link 
           href="/gallery" 
           className="text-sm text-zinc-600 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
@@ -70,7 +76,6 @@ export default function Gallery() {
             <div 
               key={`${src}-${idx}`}
               onClick={() => setSelectedIdx(idx % galleryImages.length)}
-              // CHANGED: Replaced cursor-zoom-in with cursor-pointer right here
               className="relative shrink-0 w-32 md:w-44 h-20 md:h-28 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-[1.02] cursor-pointer"
             >
               <Image src={src} alt="" fill className="object-cover" sizes="(max-width: 768px) 128px, 176px" />

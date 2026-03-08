@@ -10,6 +10,7 @@ import ConnectGrid from '@/components/sections/ConnectGrid';
 import Gallery from '@/components/sections/Gallery';
 import Footer from '@/components/layout/footer';
 import Chat from '@/components/Chat';
+import { getGalleryImages } from '@/utils/getGalleryImages';
 
 // Reusable wrapper to create the structured "Bento Box" look
 function SectionBox({ children }: { children: React.ReactNode }) {
@@ -20,6 +21,8 @@ function SectionBox({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+
+const dynamicGalleryImages = getGalleryImages();
 
 export default function Portfolio() {
   return (
@@ -55,7 +58,9 @@ export default function Portfolio() {
       <ConnectGrid />
 
       {/* Full Width Bottom Section */}
-      <SectionBox><Gallery /></SectionBox>
+      <SectionBox>
+        <Gallery galleryImages={dynamicGalleryImages} />
+      </SectionBox>
 
       <div className="pt-10">
         <Footer />
