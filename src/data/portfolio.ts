@@ -141,6 +141,14 @@ export const certifications = [
     icon: "/icons/cisco-icon.webp"
   },
   { 
+    slug: "foundational-c-sharp-with-microsoft", 
+    title: "Foundational C# with Microsoft", 
+    issuer: "freeCodeCamp / Microsoft", 
+    date: "Mar 2026",
+    credentialUrl: "https://www.freecodecamp.org/certification/gilbernardmaglinte/foundational-c-sharp-with-microsoft",
+    icon: "/icons/microsoft.webp"
+  },  
+  { 
     slug: "graphic-design-essentials", 
     title: "Graphic Design Essentials", 
     issuer: "Canva", 
