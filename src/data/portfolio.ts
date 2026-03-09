@@ -149,13 +149,21 @@ export const certifications = [
     icon: "/icons/microsoft.webp"
   },  
   { 
+    slug: "matlab-onramp", 
+    title: "MATLAB Onramp", 
+    issuer: "MathWorks", 
+    date: "Mar 2026",
+    credentialUrl: "https://matlabacademy.mathworks.com/progress/share/certificate.html?id=d94142ea-4114-41c8-9d8a-70b25eed5a9a&",
+    icon: "/icons/mathlab.webp" 
+  },
+  { 
     slug: "graphic-design-essentials", 
     title: "Graphic Design Essentials", 
     issuer: "Canva", 
     date: "Mar 2026",
     credentialUrl: "https://www.canva.com/design-school/certification-award/71f9d516-305c-4fb9-9092-f5c8ca29dbb6?",
     icon: "/icons/canva-logo.webp"
-},
+  },
   { 
     slug: "Monitoring-AWS", 
     title: "Introduction to Monitoring AWS", 
