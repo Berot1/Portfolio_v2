@@ -109,14 +109,6 @@ export const techStack = {
 
 export const certifications = [
   { 
-    slug: "getting-started-with-ai-on-jetson-nano", 
-    title: "Getting Started with AI on Jetson Nano", 
-    issuer: "NVIDIA", 
-    date: "Mar 2026",
-    credentialUrl: "https://learn.nvidia.com/certificates?id=W_8mYBxtTSutdPte7lj4Bg", 
-    icon: "/icons/nvidia.webp"
-  },
-  { 
     slug: "google-ai-essentials", 
     title: "Google AI Essentials", 
     issuer: "Google", 
@@ -139,6 +131,14 @@ export const certifications = [
     date: "Mar 2026",
     credentialUrl: "https://www.credly.com/badges/8e5bbf76-a078-45b9-9bfd-597b2cf9deeb/public_url",
     icon: "/icons/cisco-icon.webp"
+  },
+    { 
+    slug: "getting-started-with-ai-on-jetson-nano", 
+    title: "Getting Started with AI on Jetson Nano", 
+    issuer: "NVIDIA", 
+    date: "Mar 2026",
+    credentialUrl: "https://learn.nvidia.com/certificates?id=W_8mYBxtTSutdPte7lj4Bg", 
+    icon: "/icons/nvidia.webp"
   },
   { 
     slug: "foundational-c-sharp-with-microsoft", 
