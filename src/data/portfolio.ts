@@ -109,6 +109,30 @@ export const techStack = {
 
 export const certifications = [
   { 
+    slug: "google-cloud-ai-infrastructure", 
+    title: "Google Cloud AI Infrastructure", 
+    issuer: "Google", 
+    date: "Mar 2026",
+    credentialUrl: "https://coursera.org/share/4d45b2ae84e3d833e14ed7319ad91fdb", 
+    icon: "/icons/google.webp"
+  },
+  { 
+    slug: "edge-ai-fundamentals", 
+    title: "Edge AI Fundamentals", 
+    issuer: "Edge Impulse", 
+    date: "Mar 2026",
+    credentialUrl: "https://coursera.org/share/3e5409b480f00add841a856970edb9e6", 
+    icon: "/icons/edge-impulse.webp"
+  },
+  { 
+    slug: "google-ux-design", 
+    title: "Google UX Design", 
+    issuer: "Google", 
+    date: "Mar 2026",
+    credentialUrl: "https://coursera.org/share/0e921177ea63de7b2b636bb9dc936d91", 
+    icon: "/icons/google.webp"
+  },
+  { 
     slug: "google-ai-essentials", 
     title: "Google AI Essentials", 
     issuer: "Google", 
