@@ -117,11 +117,11 @@ export const certifications = [
     icon: "/icons/google.webp"
   },
   { 
-    slug: "edge-ai-fundamentals", 
-    title: "Edge AI Fundamentals", 
+    slug: "edge-ai-for-microcontrollers", 
+    title: "Edge AI for Microcontrollers", 
     issuer: "Edge Impulse", 
     date: "Mar 2026",
-    credentialUrl: "https://coursera.org/share/3e5409b480f00add841a856970edb9e6", 
+    credentialUrl: "https://coursera.org/share/20dbdaa85b75a0c9d0d1229619effcc0", 
     icon: "/icons/edge-impulse.webp"
   },
   { 
