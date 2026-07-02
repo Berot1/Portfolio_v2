@@ -1,20 +1,26 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Loader2 } from 'lucide-react';
+import Image from 'next/image';
+import { MoreHorizontal, SquarePen, ChevronUp, Send, Loader2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 
-export default function Chat() {
+export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
+  
+  // Initial message is personal, in the first person
   const [messages, setMessages] = useState<{ role: 'user' | 'ai', content: string }[]>([
-    { role: 'ai', content: "Hi! I'm Gil's AI assistant. Ask me anything about his projects or experience!" }
+    { role: 'ai', content: "Hey! 👋 Thanks for stopping by. I'm Gil. Feel free to ask me anything about my projects, skills, or what I've been working on lately. How can I help you?" }
   ]);
+  
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
   }, [messages]);
 
   const handleSend = async () => {
@@ -28,98 +34,119 @@ export default function Chat() {
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
-        body: JSON.stringify({ messages: [...messages, userMsg].map(m => ({ role: m.role, content: m.content })) }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          messages: [...messages, userMsg].map(m => ({ role: m.role, content: m.content })) 
+        }),
       });
       const data = await res.json();
       setMessages(prev => [...prev, { role: 'ai', content: data.content }]);
     } catch (error) {
-      console.error("Chat Error:", error); // Fixed unused 'error' variable
-      setMessages(prev => [...prev, { role: 'ai', content: "Sorry, I'm having trouble connecting right now." }]);
+      console.error("Chat Error:", error);
+      setMessages(prev => [...prev, { role: 'ai', content: "Sorry, I'm having a bit of trouble connecting right now. Feel free to reach out via my contact page!" }]);
     } finally {
       setIsLoading(false);
     }
   };
 
+  // Functionality for the header buttons
+  const handleResetChat = () => {
+    setMessages([{ role: 'ai', content: "Conversation reset. What else would you like to know about my work?" }]);
+  };
+
+  const handleCopyEmail = () => {
+    // Replace with your actual email
+    navigator.clipboard.writeText("your.email@example.com");
+    alert("Email copied to clipboard!");
+  };
+
   return (
-    <div className="fixed bottom-6 right-6 z-[60]">
+    <div className="fixed bottom-0 right-6 z-[60]">
       {isOpen ? (
-        <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 w-80 md:w-96 h-[500px] rounded-lg shadow-2xl flex flex-col overflow-hidden transition-all animate-in slide-in-from-bottom-4">
+        // Expanded Chat Window
+        <div className="bg-white dark:bg-zinc-900 border-x border-t border-zinc-200 dark:border-zinc-800 w-80 md:w-96 h-[500px] rounded-t-lg shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-4">
+          
           {/* Header */}
-          <div className="p-4 border-b border-zinc-100 dark:border-zinc-800 flex justify-between items-center bg-zinc-50 dark:bg-zinc-900">
+          <div className="flex items-center justify-between px-3 py-2.5 bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-500 rounded-lg animate-pulse" />
-              <span className="font-bold text-sm dark:text-white">Chat with Gil</span>
+              <div className="relative">
+                <div className="w-8 h-8 bg-zinc-200 dark:bg-zinc-700 rounded-full overflow-hidden">
+                  <Image src="/image/profile.jpg" alt="Profile" width={32} height={32} className="w-full h-full object-cover" />
+                </div>
+                <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-600 rounded-full border-2 border-white dark:border-zinc-900" />
+              </div>
+              <span className="font-semibold text-[15px] text-zinc-900 dark:text-white">Messaging</span>
             </div>
-            <button onClick={() => setIsOpen(false)} className="text-zinc-500 hover:text-black dark:hover:text-white transition-colors">
-              <X className="w-5 h-5" />
-            </button>
+            
+            <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
+              <button onClick={handleCopyEmail} title="Copy Email" className="hover:bg-zinc-100 dark:hover:bg-zinc-800 p-1 rounded-sm transition-colors">
+                <MoreHorizontal className="w-5 h-5 cursor-pointer hover:text-black dark:hover:text-white" />
+              </button>
+              <button onClick={handleResetChat} title="New Chat" className="hover:bg-zinc-100 dark:hover:bg-zinc-800 p-1 rounded-sm transition-colors">
+                <SquarePen className="w-5 h-5 cursor-pointer hover:text-black dark:hover:text-white" />
+              </button>
+              <button onClick={() => setIsOpen(false)}>
+                <ChevronUp className="w-5 h-5 cursor-pointer hover:text-black dark:hover:text-white" />
+              </button>
+            </div>
           </div>
 
-          {/* Messages */}
-          <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin">
+          {/* Messages Area */}
+          <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-white dark:bg-zinc-950">
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[80%] p-3 rounded-lg text-sm ${
+                <div className={`max-w-[80%] p-3 rounded-lg text-sm shadow-sm ${
                   m.role === 'user' 
-                    ? 'bg-zinc-900 text-white dark:bg-white dark:text-black' 
-                    : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200'
+                    ? 'bg-zinc-900 text-white' 
+                    : 'bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200'
                 }`}>
-                  {/* Fixed TypeScript and 'node' linting errors here */}
-                  <div className="space-y-2">
-                    <ReactMarkdown 
-                      components={{
-                        p: ({ ...props }) => <p className="mb-2 last:mb-0" {...props} />,
-                        ul: ({ ...props }) => <ul className="list-disc ml-4 space-y-1" {...props} />,
-                        ol: ({ ...props }) => <ol className="list-decimal ml-4 space-y-1" {...props} />,
-                        li: ({ ...props }) => <li className="pl-1" {...props} />,
-                        strong: ({ ...props }) => <strong className="font-bold" {...props} />,
-                        em: ({ ...props }) => <em className="italic" {...props} />
-                      }}
-                    >
-                      {m.content}
-                    </ReactMarkdown>
-                  </div>
+                  <ReactMarkdown 
+                    components={{ 
+                      p: ({ ...props }) => <p className="mb-1 last:mb-0" {...props} /> 
+                    }}
+                  >
+                    {m.content}
+                  </ReactMarkdown>
                 </div>
               </div>
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-zinc-100 dark:bg-zinc-800 p-3 rounded-lg">
-                  <Loader2 className="w-4 h-4 animate-spin text-zinc-500" />
-                </div>
+                <div className="bg-zinc-100 dark:bg-zinc-800 p-3 rounded-lg"><Loader2 className="w-4 h-4 animate-spin text-zinc-500" /></div>
               </div>
             )}
           </div>
 
-          {/* Input */}
-          <div className="p-4 border-t border-zinc-100 dark:border-zinc-800">
+          {/* Input Area */}
+          <div className="p-3 border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900">
             <div className="flex gap-2">
               <input 
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="Type a message..."
-                className="flex-1 bg-zinc-50 dark:bg-zinc-800 border-none rounded-lg px-3 py-2 text-sm focus:ring-1 focus:ring-zinc-400 dark:text-white outline-none"
+                placeholder="Message..." 
+                className="flex-1 bg-zinc-50 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded px-3 py-2 text-sm outline-none focus:border-zinc-500 dark:text-white dark:placeholder-zinc-400"
               />
-              <button 
-                onClick={handleSend}
-                disabled={isLoading}
-                className="p-2 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-lg hover:opacity-80 transition-opacity disabled:opacity-50"
-              >
+              <button onClick={handleSend} disabled={isLoading} className="p-2 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-700 rounded hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors disabled:opacity-50">
                 <Send className="w-4 h-4" />
               </button>
             </div>
           </div>
         </div>
       ) : (
+        // Minimized Bar
         <button 
-          onClick={() => setIsOpen(true)}
-          className="group bg-zinc-900 text-white dark:bg-white dark:text-black px-5 py-3 rounded-md font-bold text-sm flex items-center gap-2 shadow-xl hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all hover:scale-105 active:scale-95"
+          onClick={() => setIsOpen(true)} 
+          className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 px-3 py-2 rounded-t-lg shadow-lg flex items-center gap-2 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all"
         >
-          <MessageSquare 
-            className="w-4 h-4 fill-current transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110" 
-          />
-          Chat with Gil
+          <div className="relative">
+            <div className="w-6 h-6 bg-zinc-200 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <Image src="/image/profile.jpg" alt="Profile" width={24} height={24} className="w-full h-full object-cover" />
+            </div>
+            <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-green-600 rounded-full border border-white dark:border-zinc-900" />
+          </div>
+          <span className="font-semibold text-sm text-zinc-900 dark:text-white">Messaging</span>
+          <ChevronUp className="w-4 h-4 text-zinc-500 dark:text-zinc-400 ml-2" />
         </button>
       )}
     </div>
