@@ -11,11 +11,12 @@ import Chat from '@/components/Chat';
 import { getGalleryImages } from '@/utils/getGalleryImages';
 
 /**
- * Reusable wrapper to maintain consistent Bento Box styling
+ * Premium Bento Box Wrapper
+ * Inspired by modern minimal design systems (Apple/Nike)
  */
 function SectionBox({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={`p-5 rounded-sm bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md border border-zinc-200/50 dark:border-zinc-800/50 transition-colors ${className}`}>
+    <div className={`p-8 rounded-3xl bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 transition-all hover:border-zinc-300 dark:hover:border-zinc-700 ${className}`}>
       {children}
     </div>
   );
@@ -25,17 +26,18 @@ export default function Portfolio() {
   const galleryImages = getGalleryImages();
 
   return (
-    <main className="max-w-[1000px] mx-auto px-6 py-8 md:py-12 flex flex-col gap-4">
+    <main className="max-w-[1100px] mx-auto px-6 py-16 md:py-24 flex flex-col gap-8">
       
-      {/* Hero Section */}
-      <section className="mb-2">
+      {/* Hero Section: High emphasis on clarity */}
+      <section>
         <Hero />
       </section>
 
-      {/* Main Content: Split Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-        {/* Left Column: About, Stack, Projects */}
-        <div className="lg:col-span-8 flex flex-col gap-4">
+      {/* Main Content Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        {/* Primary Content: About, Tech, Projects */}
+        <div className="lg:col-span-8 flex flex-col gap-6">
           <SectionBox>
             <About />
           </SectionBox>
@@ -47,9 +49,9 @@ export default function Portfolio() {
           </SectionBox>
         </div>
 
-        {/* Right Column: Experience + Certifications */}
-        <aside className="lg:col-span-4 flex flex-col gap-4">
-          <SectionBox>
+        {/* Sidebar: Professional History */}
+        <aside className="lg:col-span-4 flex flex-col gap-6">
+          <SectionBox className="h-full">
             <Experience />
           </SectionBox>
           <SectionBox>
@@ -58,20 +60,22 @@ export default function Portfolio() {
         </aside>
       </div>
 
-      {/* Social/Connection Grid */}
-      <ConnectGrid />
+      {/* Social / Connect Section */}
+      <section>
+        <ConnectGrid />
+      </section>
 
-      {/* Gallery Section */}
+      {/* Immersive Gallery Section */}
       <SectionBox>
         <Gallery galleryImages={galleryImages} />
       </SectionBox>
 
       {/* Footer */}
-      <footer className="pt-10">
+      <footer className="mt-10 border-t border-zinc-200 dark:border-zinc-800 pt-8">
         <Footer />
       </footer>
       
-      {/* Floating Chat */}
+      {/* Floating Interaction */}
       <Chat />
     </main>
   );

@@ -71,7 +71,7 @@ export const experience = [
   },
   {
     role: "IT Support Specialist (OJT)",
-    company: "Fusion BPO Services Philippines Inc.",
+    company: "Fusion CX",
     year: "May - July 2025",
     achievements: [
       "Performed diagnostic testing and system checks on workstations, network devices, and peripherals to ensure operational integrity and user safety.",
