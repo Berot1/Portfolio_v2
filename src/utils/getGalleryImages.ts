@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
+
 export function getGalleryImages(): string[] {
   // Path to your public/image directory
   const imagesDirectory = path.join(process.cwd(), 'public/gallery');

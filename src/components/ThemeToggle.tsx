@@ -1,45 +1,121 @@
 "use client";
 
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react"; // Added useState
-import { Sun, Moon } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
+import { Moon, Sun, Monitor } from "lucide-react";
+import { flushSync } from "react-dom";
+import { cn } from "@/lib/utils";
 
-export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false); // New state
+interface ThemeToggleProps extends React.ComponentPropsWithoutRef<"div"> {
+  duration?: number;
+}
 
-  // When the component mounts on the client, set mounted to true
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
+export default function ThemeToggle({
+  className,
+  duration = 600,
+  ...props
+}: ThemeToggleProps) {
+  const [currentMode, setCurrentMode] = useState<"light" | "dark" | "system">("system");
+
+  // Wrap helpers in useCallback to satisfy dependency rules
+  const getResolvedTheme = useCallback((mode: "light" | "dark" | "system"): "light" | "dark" => {
+    if (mode === "dark") return "dark";
+    if (mode === "light") return "light";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   }, []);
 
-  // Return a placeholder (or null) if not mounted to prevent hydration mismatch
-  if (!mounted) {
-    return (
-      <div className="w-10 h-10 border border-zinc-200 dark:border-zinc-800 rounded-lg" />
+  const applyTheme = useCallback((mode: "light" | "dark" | "system") => {
+    const resolved = getResolvedTheme(mode);
+    if (resolved === "dark") document.documentElement.classList.add("dark");
+    else document.documentElement.classList.remove("dark");
+  }, [getResolvedTheme]);
+
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains("dark");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCurrentMode(isDark ? "dark" : "light");
+  }, []);
+
+  const handleThemeChange = useCallback((newMode: "light" | "dark" | "system", event: React.MouseEvent<HTMLButtonElement>) => {
+    const currentResolved = document.documentElement.classList.contains("dark") ? "dark" : "light";
+    const targetResolved = getResolvedTheme(newMode);
+
+    if (currentResolved === targetResolved) {
+      setCurrentMode(newMode);
+      return;
+    }
+
+    if (!document.startViewTransition) {
+      applyTheme(newMode);
+      setCurrentMode(newMode);
+      return;
+    }
+
+    const button = event.currentTarget;
+    const { top, left, width, height } = button.getBoundingClientRect();
+    const x = left + width / 2;
+    const y = top + height / 2;
+
+    const maxRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
     );
-  }
+
+    const transition = document.startViewTransition(() => {
+      flushSync(() => {
+        applyTheme(newMode);
+        setCurrentMode(newMode);
+      });
+    });
+
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${maxRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration,
+          easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+          pseudoElement: "::view-transition-new(root)",
+        }
+      );
+    });
+  }, [duration, getResolvedTheme, applyTheme]);
+
+  const options = [
+    { name: "system", icon: Monitor },
+    { name: "light", icon: Sun },
+    { name: "dark", icon: Moon },
+  ] as const;
 
   return (
-    <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="relative w-10 h-10 flex items-center justify-center border border-zinc-200 dark:border-zinc-800 rounded-lg bg-white dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 hover:text-orange-500 dark:hover:text-yellow-400 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 shadow-sm hover:shadow-md overflow-hidden group"
-      aria-label="Toggle Dark Mode"
+    <div 
+      className={cn("flex items-center p-0.5 bg-white dark:bg-zinc-900 rounded-full border border-zinc-200 dark:border-zinc-800 w-fit", className)}
+      {...props}
     >
-      <Sun 
-        className={`w-5 h-5 absolute transition-all duration-500 ease-spring ${
-          theme === "dark" ? "translate-y-10 opacity-0" : "translate-y-0 opacity-100 rotate-0"
-        } group-hover:rotate-45`} 
-      />
-      
-      <Moon 
-        className={`w-5 h-5 absolute transition-all duration-500 ease-spring ${
-          theme === "dark" ? "translate-y-0 opacity-100 rotate-0" : "-translate-y-10 opacity-0"
-        } group-hover:-rotate-12`} 
-      />
+      {options.map((option) => {
+        const isActive = currentMode === option.name;
+        const Icon = option.icon;
 
-      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-zinc-100/50 dark:via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-    </button>
+        return (
+          <button
+            key={option.name}
+            type="button"
+            onClick={(e) => handleThemeChange(option.name, e)}
+            className={cn(
+              "w-5 h-5 flex items-center justify-center rounded-full transition-all duration-300",
+              isActive 
+                ? "bg-zinc-100 dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100" 
+                : "text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300"
+            )}
+            aria-label={`Switch to ${option.name} theme`}
+          >
+            <Icon className="w-2.5 h-2.5" />
+          </button>
+        );
+      })}
+    </div>
   );
 }

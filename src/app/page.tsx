@@ -16,7 +16,7 @@ import { getGalleryImages } from '@/utils/getGalleryImages';
  */
 function SectionBox({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={`p-8 rounded-3xl bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 transition-all hover:border-zinc-300 dark:hover:border-zinc-700 ${className}`}>
+    <div className={`p-8 rounded-lg bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 transition-all hover:border-zinc-300 dark:hover:border-zinc-700 ${className}`}>
       {children}
     </div>
   );
