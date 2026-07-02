@@ -1,22 +1,27 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 @custom-variant dark (&:is(.dark *));
 
 @layer base {
   body {
-    @apply bg-black text-zinc-300 font-sans antialiased selection:bg-zinc-800 selection:text-white;
+    @apply bg-white text-zinc-900 dark:bg-black dark:text-zinc-300 font-sans antialiased transition-colors duration-300 selection:bg-black selection:text-white dark:selection:bg-zinc-800;
   }
 }
 
 @theme {
   --animate-scroll-horizontal: scroll-horizontal 100s linear infinite; 
   --ease-spring: cubic-bezier(0.4, 0, 0.2, 1.2);
+  --animate-border-beam: border-beam 6s linear infinite;
 
   @keyframes scroll-horizontal {
     from { transform: translateX(0); }
     to { transform: translateX(calc(-100% / 3)); }
+  }
+
+  @keyframes border-beam {
+    100% {
+      offset-distance: 100%;
+    }
   }
 }
 

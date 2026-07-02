@@ -5,16 +5,16 @@ import { MapPin, BadgeCheck } from 'lucide-react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from '../ThemeToggle';
+import { BorderBeam } from "@/components/magicui/border-beam";
 
 export default function Hero() {
-  // Split the role string by " \\ " to create an array for rotation
   const roles = personalInfo.role.split(" \\ ");
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % roles.length);
-    }, 3000); // Rotates every 3 seconds
+    }, 3000);
     return () => clearInterval(interval);
   }, [roles.length]);
 
@@ -41,7 +41,6 @@ export default function Hero() {
             <BadgeCheck className="w-6 h-6 text-blue-500" strokeWidth={2.5} />
           </h1>
           
-          {/* Animated Role Rotation */}
           <div className="h-8 overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.p
@@ -64,15 +63,19 @@ export default function Hero() {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="relative flex w-fit items-center justify-center overflow-hidden rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-3 py-1 text-xs font-medium text-zinc-600 dark:text-zinc-400">
-                <span className="flex items-center gap-1.5">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                  </span>
+              <a 
+                href={`mailto:${personalInfo.email}`}
+                className="relative flex w-fit items-center justify-center overflow-hidden rounded-full px-3 py-1 text-xs font-medium text-zinc-600 dark:text-zinc-400 bg-white dark:bg-zinc-950 shadow-sm hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors cursor-pointer group"
+              >
+                {/* Border Beam Component */}
+                <BorderBeam duration={4} colorFrom="#22c55e" colorTo="transparent" borderWidth={1.5} />
+                
+                {/* Content - Green circle removed here */}
+                <span className="flex items-center gap-1.5 relative z-10 px-1 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors">
                   Open to work
                 </span>
-              </div>
+              </a>
+              
               <ThemeToggle />
             </div>
           </div>

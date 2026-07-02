@@ -9,8 +9,9 @@ import Gallery from '@/components/sections/Gallery';
 import Footer from '@/components/layout/footer';
 import Chat from '@/components/Chat';
 import { getGalleryImages } from '@/utils/getGalleryImages';
+import { Globe } from '@/components/Globe'; // <-- Import the Globe component
 
-/**
+/* 
  * Premium Bento Box Wrapper
  * Inspired by modern minimal design systems (Apple/Nike)
  */
@@ -41,9 +42,11 @@ export default function Portfolio() {
           <SectionBox>
             <About />
           </SectionBox>
+
           <SectionBox>
             <TechStack />
           </SectionBox>
+
           <SectionBox>
             <Projects />
           </SectionBox>
@@ -54,6 +57,20 @@ export default function Portfolio() {
           <SectionBox className="h-full">
             <Experience />
           </SectionBox>
+
+          {/* NEW GLOBE SECTION */}
+          <SectionBox className="relative overflow-hidden min-h-[320px] flex flex-col">
+            <div className="relative z-10">
+              <h2 className="text-xl font-bold text-zinc-900 dark:text-white">Let&apos;s Connect</h2>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">Open to remote work & global collaboration.</p>
+            </div>
+            
+            {/* IMPORTANT: Use 'relative' here so the globe takes up space in the box */}
+            <div className="relative mt-4 flex items-center justify-center">
+              <Globe />
+            </div>
+          </SectionBox>
+
           <SectionBox>
             <Certifications />
           </SectionBox>

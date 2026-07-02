@@ -56,7 +56,7 @@ export default function ChatWidget() {
 
   const handleCopyEmail = () => {
     // Replace with your actual email
-    navigator.clipboard.writeText("your.email@example.com");
+    navigator.clipboard.writeText("mgilbernard@gmail.com");
     alert("Email copied to clipboard!");
   };
 

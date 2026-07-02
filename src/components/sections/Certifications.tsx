@@ -6,7 +6,7 @@ import { ExternalLink } from 'lucide-react';
 
 export default function Certifications() {
   // Only show the first 3 certifications on the homepage
-  const displayedCerts = certifications.slice(0, 6);
+  const displayedCerts = certifications.slice(0, 3);
 
   return (
     <section className="space-y-6">
