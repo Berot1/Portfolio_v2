@@ -36,9 +36,10 @@ export default function Hero() {
       {/* Hero Content */}
       <div className="flex-1 w-full text-center sm:text-left">
         <div className="space-y-2">
-          <h1 className="text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 flex items-center justify-center sm:justify-start gap-2">
+          {/* Refined Name Styling: Reduced size and weight for professional look */}
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 flex items-center justify-center sm:justify-start gap-2">
             {personalInfo.name}
-            <BadgeCheck className="w-6 h-6 text-blue-500" strokeWidth={2.5} />
+            <BadgeCheck className="w-5 h-5 text-blue-500 shrink-0" strokeWidth={2.5} />
           </h1>
           
           <div className="h-8 overflow-hidden">
@@ -49,7 +50,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className="text-xl text-zinc-600 dark:text-zinc-400 font-medium"
+                className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-medium"
               >
                 {roles[index]}
               </motion.p>
@@ -70,7 +71,6 @@ export default function Hero() {
                 {/* Border Beam Component */}
                 <BorderBeam duration={4} colorFrom="#22c55e" colorTo="transparent" borderWidth={1.5} />
                 
-                {/* Content - Green circle removed here */}
                 <span className="flex items-center gap-1.5 relative z-10 px-1 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors">
                   Open to work
                 </span>
