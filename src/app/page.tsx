@@ -3,7 +3,6 @@ import About from '@/components/sections/About';
 import Experience from '@/components/sections/Experience';
 import TechStack from '@/components/sections/TechStack';
 import Projects from '@/components/sections/Projects';
-import IDCard from '@/components/sections/IDCard';
 import Certifications from '@/components/sections/Certifications';
 import Recommendations from '@/components/sections/Recommendations';
 import ConnectGrid from '@/components/sections/ConnectGrid';
@@ -43,7 +42,6 @@ export default function Portfolio() {
 
         {/* Right Column */}
         <div className="lg:col-span-5 xl:col-span-4 flex flex-col gap-4">
-          <IDCard />
           <SectionBox><Experience /></SectionBox>
         </div>
       </div>
