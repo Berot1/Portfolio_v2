@@ -234,14 +234,6 @@ export const certifications = [
   }
 ];
 
-export const recommendations = [
-  {
-    quote: "Gil's work on the KneuraSense project demonstrated an exceptional grasp of both hardware constraints and advanced machine learning. His ability to deploy Edge AI models onto microcontrollers is truly impressive and forward-thinking.",
-    name: "Dr. Example",
-    role: "Research Director, University Lab"
-  }
-];
-
 export const affiliations = [
   { name: "Google Developer Groups on Campus CIT-U (GDGoC - CITU)", link: "https://www.facebook.com/gdgoc.citu" },
   { name: "Cebu Institute of Computer Engineers of the Philippines CIT-U Chapter (ICpEP.SE)", link: "https://www.facebook.com/cituicpep/" },
