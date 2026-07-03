@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { useTheme } from "next-themes"
 import createGlobe, { type COBEOptions } from "cobe"
 import { useMotionValue, useSpring } from "motion/react"
 import { cn } from "@/lib/utils"
@@ -27,7 +26,7 @@ const GLOBE_CONFIG: COBEOptions = {
   mapSamples: 16000,
   mapBrightness: 1.2,
   baseColor: [1, 1, 1],
-  markerColor: [34 / 255, 197 / 255, 94 / 255],
+  markerColor: [34 / 255, 197 / 255, 94 / 255], 
   glowColor: [1, 1, 1],
   markers: [
     { location: [14.5995, 120.9842], size: 0.1 },
@@ -41,8 +40,8 @@ const GLOBE_CONFIG: COBEOptions = {
 }
 
 export function Globe({ className, config = GLOBE_CONFIG }: { className?: string; config?: COBEOptions }) {
-  const { resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [isDark, setIsDark] = useState(false) // Local state to track actual DOM theme
   
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -56,6 +55,21 @@ export function Globe({ className, config = GLOBE_CONFIG }: { className?: string
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
+    
+    // 1. Check the initial theme immediately on mount
+    setIsDark(document.documentElement.classList.contains('dark'))
+
+    // 2. Set up a MutationObserver to watch your custom ThemeToggle changes
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains('dark'))
+    })
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'], // Only fire when classes change
+    })
+
+    return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
@@ -73,15 +87,13 @@ export function Globe({ className, config = GLOBE_CONFIG }: { className?: string
     onResize()
 
     if (canvasRef.current) {
-      // Dynamic colors based on theme
-      const baseColor = (resolvedTheme === 'dark' ? [0.1, 0.1, 0.1] : [1, 1, 1]) as [number, number, number]
-      const glowColor = (resolvedTheme === 'dark' ? [0.2, 0.2, 0.2] : [1, 1, 1]) as [number, number, number]
-
       globe = createGlobe(canvasRef.current, {
         ...config,
-        dark: resolvedTheme === 'dark' ? 1 : 0,
-        baseColor,
-        glowColor,
+        // Sync the globe's dark mode property to the DOM state
+        dark: isDark ? 1 : 0, 
+        baseColor: [1, 1, 1], // Keep dots white so they pop against the dark sphere
+        // Dim the outer glow in dark mode so it doesn't blind the user
+        glowColor: isDark ? [0.15, 0.15, 0.15] : [1, 1, 1], 
         width: widthRef.current * 2,
         height: widthRef.current * 2,
         onRender: (state: Record<string, unknown>) => {
@@ -99,7 +111,7 @@ export function Globe({ className, config = GLOBE_CONFIG }: { className?: string
       if (globe) globe.destroy()
       window.removeEventListener("resize", onResize)
     }
-  }, [rs, config, resolvedTheme, mounted])
+  }, [rs, config, isDark, mounted]) // Added isDark as a dependency to rebuild globe on toggle
 
   return (
     <div 

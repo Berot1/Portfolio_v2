@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Gil Bernard F. Maglinte",
-  role: "Computer Engineer \\ Software Developer \\ AI Enthusiast",
+  role: "Computer Engineer \\ Software Developer \\ IT Specialist \\ AI Enthusiast",
   location: "Cebu City, Central Visayas, Philippines",
   email: "mgilbernard@gmail.com",
   about: [
@@ -9,6 +9,15 @@ export const personalInfo = {
     "Lately, I've been diving deeper into Edge AI, focusing on integrating machine learning directly onto microcontrollers to optimize predictive healthcare analysis and deliver cutting-edge wearable technology."
   ]
 };
+
+export interface Project {
+  title: string;
+  description: string;
+  link: string;
+  tags: string[];
+  image?: string;
+  category: string;
+}
 
 export const projects = [
   {
