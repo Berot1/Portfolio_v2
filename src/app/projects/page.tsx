@@ -15,7 +15,6 @@ export default function ProjectsPage() {
   const otherProjects = projects.filter(project => !featuredTitles.includes(project.title));
 
   return (
-    // CHANGED: Reduced py-16 md:py-24 to py-8 md:py-12 to tighten the top spacing
     <main className="max-w-[950px] mx-auto px-6 py-8 md:py-12">
       
       {/* Header Section */}
@@ -31,66 +30,67 @@ export default function ProjectsPage() {
           projects
         </h1>
         <p className="text-zinc-500 dark:text-zinc-400 text-base leading-relaxed max-w-[650px]">
-          Products and platforms I&apos;ve designed and shipped — spanning embedded systems, generative AI, and web apps.
+          Products and platforms I&apos;ve designed and shipped—spanning embedded systems, generative AI, and web apps.
         </p>
       </div>
 
       {/* Featured Projects */}
-      <div className="space-y-8 mb-16">
+      <div className="space-y-4 mb-16">
         {featuredProjects.map((project) => {
           const { label, Icon } = getLinkDetails(project.link);
           return (
             <div 
               key={project.title}
-              className="flex flex-col md:flex-row gap-8 p-4 md:p-6 bg-white dark:bg-zinc-900/30 border border-zinc-200/80 dark:border-white/5 rounded-sm shadow-sm dark:shadow-none"
+              className="flex flex-col md:flex-row gap-4 md:gap-6 p-3 md:p-4 bg-white dark:bg-zinc-900/30 border border-zinc-200/80 dark:border-white/5 rounded-sm shadow-sm dark:shadow-none"
             >
-              <div className="relative w-full md:w-[320px] aspect-square shrink-0 rounded-sm overflow-hidden bg-zinc-50 dark:bg-zinc-950/50 flex items-center justify-center">
+              <div className="relative w-full md:w-[240px] aspect-square shrink-0 rounded-sm overflow-hidden bg-zinc-50 dark:bg-zinc-950/50 flex items-center justify-center">
                 {project.image ? (
                    <Image 
-                     src={project.image} 
+                     src={project.image}
                      alt={project.title}
                      fill
                      className="object-cover transition-transform duration-700 hover:scale-105"
-                     sizes="(max-width: 768px) 100vw, 320px"
+                     sizes="(max-width: 768px) 100vw, 240px"
                      priority={false}
                    />
                 ) : (
-                  <span className="text-xs font-bold text-zinc-400 dark:text-zinc-600 tracking-widest">NO PREVIEW</span>
+                  <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 tracking-widest">NO PREVIEW</span>
                 )}
               </div>
-
-              <div className="flex-1 flex flex-col py-2 md:py-4 md:pr-4">
-                <div className="flex flex-wrap items-center gap-2.5 mb-5">
-                  <span className="inline-flex items-center px-2.5 py-1.5 rounded-sm bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-[10px] font-bold tracking-widest uppercase">
+              
+              <div className="flex-1 flex flex-col py-1 md:py-2 md:pr-2">
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  <span className="inline-flex items-center px-2 py-1 rounded-sm bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-[9px] font-bold tracking-widest uppercase">
                     {project.category || "PROJECT"}
                   </span>
                   {project.tags.slice(0, 2).map(tag => (
-                    <span key={tag} className="inline-flex items-center px-2.5 py-1.5 rounded-sm border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 text-[10px] font-medium uppercase tracking-wider bg-white dark:bg-transparent">
+                    <span key={tag} className="inline-flex items-center px-2 py-1 rounded-sm border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 text-[9px] font-medium uppercase tracking-wider bg-white dark:bg-transparent">
                       {tag}
                     </span>
                   ))}
                 </div>
-
-                <h2 className="text-2xl md:text-3xl font-semibold text-zinc-900 dark:text-zinc-50 mb-4 tracking-tight">
+                
+                <h2 className="text-xl md:text-2xl font-semibold text-zinc-900 dark:text-zinc-50 mb-2 tracking-tight">
                   {project.title}
                 </h2>
-                <p className="text-[15px] text-zinc-500 dark:text-zinc-400 mb-8 leading-relaxed">
+                
+                <p className="text-[14px] text-zinc-500 dark:text-zinc-400 mb-4 leading-relaxed">
                   {project.description}
                 </p>
-
-                <div className="mb-8">
+                
+                <div className="mb-4">
                   <a 
-                    href={`https://${project.link}`} 
-                    target="_blank" 
+                    href={`https://${project.link}`}
+                    target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2.5 px-5 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-sm text-sm font-semibold hover:bg-zinc-800 dark:hover:bg-white transition-colors w-fit shadow-sm"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-sm text-xs font-semibold hover:bg-zinc-800 dark:hover:bg-white transition-colors w-fit shadow-sm"
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-3.5 h-3.5" />
                     {label}
                   </a>
                 </div>
-
-                <div className="pt-6 border-t border-zinc-100 dark:border-white/5 flex items-center flex-wrap gap-x-2.5 gap-y-1 text-[10px] uppercase tracking-widest mt-auto">
+                
+                <div className="pt-4 border-t border-zinc-100 dark:border-white/5 flex items-center flex-wrap gap-x-2 gap-y-1 text-[9px] uppercase tracking-widest mt-auto">
                   <span className="font-bold text-zinc-900 dark:text-zinc-300 mr-1">TECH STACK /</span>
                   {project.tags.map((tag, idx) => (
                     <React.Fragment key={tag}>
