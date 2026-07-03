@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { MoreHorizontal, SquarePen, ChevronUp, Send, Loader2 } from 'lucide-react';
@@ -7,13 +6,13 @@ import ReactMarkdown from 'react-markdown';
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
+  const [hasUnread, setHasUnread] = useState(true); // Added state for the unread badge
   const [input, setInput] = useState("");
   
   // Initial message is personal, in the first person
   const [messages, setMessages] = useState<{ role: 'user' | 'ai', content: string }[]>([
-    { role: 'ai', content: "Hey! 👋 Thanks for stopping by. I'm Gil. Feel free to ask me anything about my projects, skills, or what I've been working on lately. How can I help you?" }
+    { role: 'ai', content: "Hey! Thanks for stopping by. I'm Gil. Feel free to ask me anything about my projects, skills, or what I've been working on lately. How can I help you?" }
   ]);
-  
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -25,19 +24,18 @@ export default function ChatWidget() {
 
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;
-
     const userMsg = { role: 'user' as const, content: input };
     setMessages(prev => [...prev, userMsg]);
     setInput("");
     setIsLoading(true);
-
+    
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
-          messages: [...messages, userMsg].map(m => ({ role: m.role, content: m.content })) 
-        }),
+           messages: [...messages, userMsg].map(m => ({ role: m.role, content: m.content })) 
+         }),
       });
       const data = await res.json();
       setMessages(prev => [...prev, { role: 'ai', content: data.content }]);
@@ -55,7 +53,6 @@ export default function ChatWidget() {
   };
 
   const handleCopyEmail = () => {
-    // Replace with your actual email
     navigator.clipboard.writeText("mgilbernard@gmail.com");
     alert("Email copied to clipboard!");
   };
@@ -101,8 +98,8 @@ export default function ChatWidget() {
                     : 'bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200'
                 }`}>
                   <ReactMarkdown 
-                    components={{ 
-                      p: ({ ...props }) => <p className="mb-1 last:mb-0" {...props} /> 
+                    components={{
+                      p: ({ ...props }) => <p className="mb-1 last:mb-0" {...props} />
                     }}
                   >
                     {m.content}
@@ -136,15 +133,28 @@ export default function ChatWidget() {
       ) : (
         // Minimized Bar
         <button 
-          onClick={() => setIsOpen(true)} 
-          className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 px-3 py-2 rounded-t-lg shadow-lg flex items-center gap-2 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all"
+           onClick={() => {
+             setIsOpen(true);
+             setHasUnread(false); // Clears the notification badge when opened
+           }} 
+           className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 px-3 py-2 rounded-t-lg shadow-lg flex items-center gap-2 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all"
         >
           <div className="relative">
             <div className="w-6 h-6 bg-zinc-200 dark:bg-zinc-700 rounded-full overflow-hidden">
               <Image src="/image/profile.jpg" alt="Profile" width={24} height={24} className="w-full h-full object-cover" />
             </div>
+            
+            {/* Green active status indicator */}
             <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-green-600 rounded-full border border-white dark:border-zinc-900" />
+            
+            {/* Red unread message badge (matches the reference image) */}
+            {hasUnread && (
+              <div className="absolute -top-1.5 -right-1.5 w-[14px] h-[14px] bg-red-500 text-white flex items-center justify-center rounded-full border-[1.5px] border-white dark:border-zinc-900 z-10 font-bold" style={{ fontSize: '9px' }}>
+                1
+              </div>
+            )}
           </div>
+          
           <span className="font-semibold text-sm text-zinc-900 dark:text-white">Messaging</span>
           <ChevronUp className="w-4 h-4 text-zinc-500 dark:text-zinc-400 ml-2" />
         </button>
