@@ -10,7 +10,7 @@ const getLinkDetails = (url: string) => {
 };
 
 export default function ProjectsPage() {
-  const featuredTitles = ["KneuraSense (Research Thesis)", "Portfolio v1.0"];
+  const featuredTitles = ["KneuraSense", "Portfolio v1.0"];
   const featuredProjects = projects.filter(project => featuredTitles.includes(project.title));
   const otherProjects = projects.filter(project => !featuredTitles.includes(project.title));
 

@@ -21,18 +21,26 @@ export interface Project {
 
 export const projects = [
   {
-    title: "KneuraSense (Research Thesis)",
-    description: "An IoT wearable device utilizing Edge AI and sensors to monitor and predict knee osteoarthritis risks. Features a full-stack dashboard powered by Next.js, Prisma, and PostgreSQL, includes an AI chat feature to help patients and clinicians.",
+    title: "KneuraSense",
+    description: "An IoT wearable knee support utilizing a 4-axis sensor fusion configuration and Edge AI to predict early-onset osteoarthritis risks in real-time. It dynamically adjusts to incline context and features a full-stack Next.js dashboard with live telemetry, haptic interventions, and a clinical AI assistant.",
     link: "kneura-sense-koa.vercel.app",
-    tags: ["Next.js", "Edge AI", "IoT", "XIAO ESP32-S3", "PostgreSQL"],
+    tags: ["Next.js", "Edge AI", "XIAO ESP32-S3", "PostgreSQL", "MQTT"],
     image: "/projects/KneuraSense.png",
     category: "IoT"
   },
   {
+    title: "Portfolio v2.0",
+    description: "The second iteration of my professional portfolio reflects a refined approach to modern web design and user experience. Built as a central hub for my technical journey, this version emphasizes high performance and visual storytelling. It features a responsive, Bento-style grid layout, sophisticated motion design, and a custom-built AI chatbot that allows visitors to query my professional experience and project history dynamically.",
+    link: "gil-bernard.vercel.app",
+    tags: ["Next.js", "Framer Motion", "Tailwind CSS", "TypeScript"],
+    image: "/projects/portfolio-v2.png",
+    category: "Web"
+  },
+  {
     title: "Student Tracking System",
-    description: "A comprehensive N-Tier web application serving as a Learning Management and Student Information System. Features role-based portals for managing student enrollments, automated scheduling, and an interactive grading system.",
+    description: "An N-Tier enterprise web application developed during the Alliance Software Inc. training program. It serves as a Learning Management and Student Information System featuring complex role-based access control, automated academic scheduling, and an interactive grading architecture built on ASP.NET Core MVC.",
     link: "github.com/loydamt/asi.basecode",
-    tags: ["C#", "ASP.NET Core", "MVC", "Entity Framework"],
+    tags: ["C#", "ASP.NET Core", "MVC", "Entity Framework", "SQL Server"],
     image: "/projects/learnoxa.png",
     category: "Web App"
   },
@@ -46,14 +54,14 @@ export const projects = [
   },
   {
     title: "Portfolio v1.0",
-    description: "My first professional portfolio highlighting my journey as a computer engineering student. It showcases technical expertise in software development and system optimization through an interactive and responsive design.",
+    description: "A professional, responsive portfolio website showcasing my foundational software engineering and systems development projects. Designed to highlight key academic and technical achievements, it features a modern, component-based UI built with Next.js and interactive motion design.",
     link: "gil-portfolio-v1.vercel.app",
-    tags: ["Next.js", "React", "JavaScript", "Tailwind CSS"],
+    tags: ["Next.js", "React", "Tailwind CSS", "JavaScript", "Framer Motion"],
     image: "/projects/portfolio-v1.png",
     category: "Web"
   },
   {
-    title: "WILDFind",
+    title: "WildFind",
     description: "A lost and found tracking system for school environments. Originally developed as a C# Windows Forms application, now migrated to a modern web-based platform using React and Firebase for improved accessibility and real-time updates.",
     link: "github.com/AspireSpartan/WILDFind_webapp",
     tags: ["React", "Vite", "Firebase", "JavaScript", "HTML/CSS"],
@@ -101,18 +109,16 @@ export const techStack = {
     "Next.js", "React", "Tailwind CSS", "JavaScript", "HTML", "CSS", "Figma", "Canva"
   ],
   "Backend & Cloud": [
-    "Node.js", "ASP.NET", "PostgreSQL", "Supabase", 
-    "Vercel", "AWS Lambda", "Gemini API", "OpenWeather API"
+    "Node.js", "ASP.NET", "PostgreSQL", "Supabase", "Vercel", "AWS Lambda", "Gemini API", "OpenWeather API", "Render", "HiveMQ"
   ],
   "IoT & Embedded": [
-    "C", "C++", "XIAO ESP32-S3", "AWS IoT", "MQTT.js", "HiveMQ", "Arduino IDE", "Wokwi", "PlatformIO"
+    "C", "C++", "XIAO ESP32-S3", "AWS IoT", "MQTT.js", "Arduino IDE", "PlatformIO", "FreeRTOS", "TensorFlow Lite Micro", "Edge Impulse (TinyML)"
   ],
   "Hardware & Engineering": [
-    "KiCad", "PCB Design", "Fusion 360", "AutoCAD", "Inventor", "3D Design", "MatLab"
+    "KiCad", "PCB Design", "Circuit Schematics", "Fusion 360", "AutoCAD", "Inventor", "3D Design", "MatLab", "I2C Multiplexing (PCA9548A)", "Sensor Fusion (IMU / FSR)"
   ],
   "Tools & Architecture": [
-    "Git", "GitHub", "VS Code", "Visual Studio", "C#", "Cisco", "Vite",
-    "JWT", "Zod", "ESLint", "Prisma", "Vercel", "Edge Impulse"
+    "Git", "GitHub", "VS Code", "Visual Studio", "C#", "Cisco", "Vite", "JWT", "Zod", "ESLint", "Prisma", "SPIFFS File System"
   ]
 };
 
