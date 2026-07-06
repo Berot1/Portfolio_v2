@@ -29,6 +29,14 @@ export const projects = [
     category: "IoT"
   },
   {
+    title: "Kasaysayan",
+    description: "An AI-powered research platform for Philippine history. It enables users to upload digitized archival manuscripts and query them using Retrieval-Augmented Generation (RAG) to ensure every AI-generated insight is strictly anchored to a verifiable primary source.",
+    link: "kasaysayan-archive.vercel.app/",
+    tags: ["Next.js", "RAG", "Supabase", "OCR", "TypeScript"],
+    image: "/projects/kasaysayan.png",
+    category: "AI/Web"
+  },
+  {
     title: "Portfolio v2.0",
     description: "The second iteration of my professional portfolio reflects a refined approach to modern web design and user experience. Built as a central hub for my technical journey, this version emphasizes high performance and visual storytelling. It features a responsive, Bento-style grid layout, sophisticated motion design, and a custom-built AI chatbot that allows visitors to query my professional experience and project history dynamically.",
     link: "gil-bernard.vercel.app",
@@ -109,7 +117,7 @@ export const techStack = {
     "Next.js", "React", "Tailwind CSS", "JavaScript", "HTML", "CSS", "Figma", "Canva"
   ],
   "Backend & Cloud": [
-    "Node.js", "ASP.NET", "PostgreSQL", "Supabase", "Vercel", "AWS Lambda", "Gemini API", "OpenWeather API", "Render", "HiveMQ"
+    "Node.js", "FastAPI", "ASP.NET", "PostgreSQL", "Supabase", "Vercel", "AWS Lambda", "Gemini API", "OpenWeather API", "Render", "HiveMQ"
   ],
   "IoT & Embedded": [
     "C", "C++", "XIAO ESP32-S3", "AWS IoT", "MQTT.js", "Arduino IDE", "PlatformIO", "FreeRTOS", "TensorFlow Lite Micro", "Edge Impulse (TinyML)"
