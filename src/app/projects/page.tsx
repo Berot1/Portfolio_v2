@@ -103,33 +103,31 @@ export default function ProjectsPage() {
       {/* Secondary Projects List */}
       <div className="flex flex-col border-t border-zinc-200/80 dark:border-zinc-800/80 pt-4">
         {otherProjects.map((project) => (
-          <a 
+          <a
             key={project.title}
             href={`https://${project.link}`}
-            target="_blank" 
+            target="_blank"
             rel="noreferrer"
-            className="group flex flex-col md:flex-row md:items-start py-8 md:py-10 border-b border-zinc-200/50 dark:border-white/5 last:border-0 hover:bg-zinc-50/50 dark:hover:bg-zinc-900/10 transition-colors duration-300"
+            className="group flex flex-col md:flex-row md:items-start py-6 border-b border-zinc-200/50 dark:border-white/5 last:border-0 hover:bg-zinc-50/50 dark:hover:bg-zinc-900/10 transition-colors duration-300"
           >
-            <div className="w-full md:w-[35%] shrink-0 mb-3 md:mb-0 md:pr-6">
-              <h3 className="text-base md:text-lg font-normal text-zinc-900 dark:text-zinc-100 group-hover:text-black dark:group-hover:text-white transition-colors">
+            <div className="w-full md:w-[35%] shrink-0 mb-2 md:mb-0 md:pr-6">
+              <h3 className="text-base font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-black dark:group-hover:text-white transition-colors mt-0.5">
                 {project.title}
               </h3>
             </div>
-
-            <div className="flex-1 flex items-start justify-between gap-6">
-              <div className="flex flex-col gap-2">
+            <div className="flex-1 flex items-start justify-between gap-5">
+              <div className="flex flex-col gap-1.5">
                 <p className="text-[10px] md:text-xs font-mono font-medium uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
                   {project.category || "SOFTWARE"}
                 </p>
-                <p className="text-sm md:text-[15px] text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors">
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors line-clamp-3">
                   {project.description}
                 </p>
               </div>
-
-              <div className="shrink-0 pt-0.5">
-                <ArrowUpRight 
-                  className="w-4 h-4 text-zinc-300 dark:text-zinc-600 group-hover:text-zinc-900 dark:group-hover:text-zinc-300 transition-transform transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-300" 
-                  strokeWidth={1.5} 
+              <div className="shrink-0 pt-1">
+                <ArrowUpRight
+                  className="w-4 h-4 text-zinc-300 dark:text-zinc-600 group-hover:text-zinc-900 dark:group-hover:text-zinc-300 transition-transform transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-300"
+                  strokeWidth={1.5}
                 />
               </div>
             </div>

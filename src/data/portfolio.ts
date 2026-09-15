@@ -38,7 +38,7 @@ export const projects = [
   },
   {
     title: "Portfolio v2.0",
-    description: "The second iteration of my professional portfolio reflects a refined approach to modern web design and user experience. Built as a central hub for my technical journey, this version emphasizes high performance and visual storytelling. It features a responsive, Bento-style grid layout, sophisticated motion design, and a custom-built AI chatbot that allows visitors to query my professional experience and project history dynamically.",
+    description: "A modern personal portfolio built to highlight my skills, projects, and technical journey, complete with a custom AI assistant and interactive components.",
     link: "gil-bernard.vercel.app",
     tags: ["Next.js", "Framer Motion", "Tailwind CSS", "TypeScript"],
     image: "/projects/portfolio-v2.png",
@@ -46,7 +46,7 @@ export const projects = [
   },
   {
     title: "Student Tracking System",
-    description: "An N-Tier enterprise web application developed during the Alliance Software Inc. training program. It serves as a Learning Management and Student Information System featuring complex role-based access control, automated academic scheduling, and an interactive grading architecture built on ASP.NET Core MVC.",
+    description: "A comprehensive Learning Management and Student Information System built with ASP.NET Core MVC during the Alliance Software Inc. training program.",
     link: "github.com/loydamt/asi.basecode",
     tags: ["C#", "ASP.NET Core", "MVC", "Entity Framework", "SQL Server"],
     image: "/projects/learnoxa.png",
@@ -54,26 +54,42 @@ export const projects = [
   },
   {
     title: "Smart Autonomous Fire Detection and Active Suppression System",
-    description: "An IoT-based fire safety platform for real-time hazard monitoring. I was responsible for the cloud infrastructure, setting up AWS IoT Core for device connectivity and developing AWS Lambda functions to trigger emergency email alerts via SES.",
+    description: "An IoT fire safety platform with AWS IoT Core monitoring and automated emergency alerts via AWS Lambda and SES, built as a Zuitt capstone project.",
     link: "github.com/Berot1/Capstone-project-Zuitt/blob/main/Capstone-project/project%20files/BEC0017-maglinte-gilbernard.md",
     tags: ["ESP32", "MQTT", "C++", "AWS IoT Core", "AWS Lambda", "AWS SES"],
     image: "/projects/Fire.png",
     category: "Embedded"
   },
   {
+    title: "WildFind v2.0",
+    description: "A web-based lost and found tracking system migrated to React and Firebase, featuring real-time synchronization, cross-device accessibility, and automated deployment.",
+    link: "WildFind-v2.vercel.app",
+    tags: ["React", "Vite", "Firebase", "JavaScript", "HTML/CSS"],
+    image: "/projects/wildfind-v2.png",
+    category: "Web"
+  },
+  {
     title: "Portfolio v1.0",
-    description: "A professional, responsive portfolio website showcasing my foundational software engineering and systems development projects. Designed to highlight key academic and technical achievements, it features a modern, component-based UI built with Next.js and interactive motion design.",
+    description: "My foundational professional portfolio showcasing academic and technical achievements, built with a modern Next.js component-based UI and interactive motion design.",
     link: "gil-portfolio-v1.vercel.app",
     tags: ["Next.js", "React", "Tailwind CSS", "JavaScript", "Framer Motion"],
     image: "/projects/portfolio-v1.png",
     category: "Web"
   },
   {
-    title: "WildFind",
-    description: "A lost and found tracking system for school environments. Originally developed as a C# Windows Forms application, now migrated to a modern web-based platform using React and Firebase for improved accessibility and real-time updates.",
-    link: "github.com/AspireSpartan/WILDFind_webapp",
-    tags: ["React", "Vite", "Firebase", "JavaScript", "HTML/CSS"],
+    title: "WildFind v1.0",
+    description: "A native C# Windows Forms application designed for school environments to manage lost items and process student claims using a local MS Access database.",
+    link: "WildFind-v1.vercel.app",
+    tags: ["C#", "Windows Forms", ".NET", "Ms Access" ,"Desktop"],
     image: "/projects/wildfind.png",
+    category: "Software"
+  },
+  {
+    title: "Velocity-Bike-Shop-Management-System",
+    description: "A C# Windows Forms desktop application for bike shops, streamlining inventory, POS transactions, and service repair ticketing via an MS Access database.",
+    link: "velocity-v1.vercel.app",
+    tags: ["C#", "Windows Forms", ".NET", "Ms Access", "Desktop"],
+    image: "/projects/velocity.png",
     category: "Software"
   }
 ];
