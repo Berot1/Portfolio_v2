@@ -25,7 +25,6 @@ export default function Hero() {
       className="relative flex flex-col sm:flex-row items-center sm:items-start justify-between gap-8 pb-10 border-b border-zinc-200/60 dark:border-white/5 w-full"
     >
       <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8 flex-1">
-        
         {/* Profile Image - Hidden on Desktop (md), visible on Mobile */}
         <div className="shrink-0 md:hidden">
           <div className="relative w-32 h-32 overflow-hidden bg-zinc-50 dark:bg-zinc-950 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800">
@@ -40,11 +39,12 @@ export default function Hero() {
         </div>
 
         {/* Hero Content */}
-        <div className="w-full text-center sm:text-left mt-2">
+        <div className="w-full text-center sm:text-left mt-2 font-mono">
           <div className="space-y-1.5">
-            <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 flex items-center justify-center sm:justify-start gap-2 mb-3">
+            <div className="text-xs text-zinc-400 dark:text-zinc-500 mb-1">[00 // OVERVIEW]</div>
+            <h1 className="text-2xl md:text-4xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 flex items-center justify-center sm:justify-start gap-2 mb-3">
               {personalInfo.name}
-              <BadgeCheck className="w-6 h-6 text-blue-500/80 shrink-0" strokeWidth={2} />
+              <BadgeCheck className="w-5 h-5 text-blue-500/80 shrink-0" strokeWidth={2} />
             </h1>
             
             <div className="h-8 overflow-hidden">
@@ -55,14 +55,15 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="text-base md:text-lg text-zinc-500 dark:text-zinc-400 font-light tracking-wide"
+                  className="text-xs md:text-sm text-zinc-500 dark:text-zinc-400 tracking-wider uppercase"
                 >
                   {roles[index]}
                 </motion.p>
               </AnimatePresence>
             </div>
-            <div className="flex items-center justify-center sm:justify-start gap-2 text-sm text-zinc-400 dark:text-zinc-500 font-medium tracking-wide mt-4">
-              <MapPin className="w-4 h-4" strokeWidth={1.5} />
+
+            <div className="flex items-center justify-center sm:justify-start gap-2 text-xs text-zinc-400 dark:text-zinc-500 tracking-wider mt-4 uppercase">
+              <MapPin className="w-3.5 h-3.5" strokeWidth={1.5} />
               {personalInfo.location}
             </div>
           </div>
