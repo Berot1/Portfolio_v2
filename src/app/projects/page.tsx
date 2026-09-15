@@ -16,11 +16,10 @@ export default function ProjectsPage() {
 
   return (
     <main className="max-w-[950px] mx-auto">
-      
       {/* Header Section */}
       <div className="mb-12">
         <Link 
-          href="/" 
+          href="/"
           className="inline-flex items-center gap-2 font-mono text-[10px] tracking-widest text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors uppercase mb-8"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
@@ -38,51 +37,53 @@ export default function ProjectsPage() {
       </div>
 
       {/* Featured Projects */}
-      <div className="space-y-3 mb-10">
+      <div className="space-y-4 mb-12">
         {featuredProjects.map((project) => {
           const { label, Icon } = getLinkDetails(project.link);
           return (
             <div 
               key={project.title}
-              className="flex flex-col md:flex-row gap-3 md:gap-5 p-2.5 md:p-3 bg-white dark:bg-zinc-900/30 border border-zinc-200/80 dark:border-white/5 rounded-2xl shadow-sm dark:shadow-none"
+              className="flex flex-col sm:flex-row gap-5 p-5 md:p-6 bg-white dark:bg-zinc-900/30 border border-zinc-200/80 dark:border-white/5 rounded-2xl shadow-sm dark:shadow-none items-start"
             >
-              <div className="relative w-full md:w-[270px] aspect-[16/9] shrink-0 rounded-xl overflow-hidden bg-zinc-50 dark:bg-zinc-950/50 flex items-center justify-center">
-                {project.image ? (
-                   <Image 
-                     src={project.image}
-                     alt={project.title}
-                     fill
-                     className="object-contain transition-transform duration-700 hover:scale-[1.02]"
-                     sizes="(max-width: 768px) 100vw, 270px"
-                     priority={false}
-                   />
+              {/* App Icon Box */}
+              <div className="relative w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-2xl overflow-hidden bg-zinc-50 dark:bg-zinc-950/50 border border-zinc-200/60 dark:border-white/10 flex items-center justify-center shadow-sm">
+                {project.image ? ( 
+                  <Image 
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    sizes="96px"
+                    priority={false}
+                  />
                 ) : (
-                  <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 tracking-widest">NO PREVIEW</span>
+                  <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 tracking-widest">ICON</span>
                 )}
               </div>
-              
-              <div className="flex-1 flex flex-col py-0.5 md:py-1 md:pr-1">
-                <div className="flex flex-wrap items-center gap-1.5 mb-2">
+
+              {/* Project Info */}
+              <div className="flex-1 flex flex-col">
+                <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900">
                     <span>&lt;/&gt;</span>
                     <span>{project.category || "PROJECT"}</span>
                   </span>
-                  {project.tags.slice(0, 2).map(tag => (
+                  {project.tags.slice(0, 3).map(tag => (
                     <span key={tag} className="px-2.5 py-1 rounded-full text-[10px] font-mono tracking-wider text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200/60 dark:border-zinc-700">
                       {tag}
                     </span>
                   ))}
                 </div>
-                
+
                 <h2 className="text-lg md:text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-1.5 tracking-tight">
                   {project.title}
                 </h2>
-                
-                <p className="text-xs md:text-[13px] text-zinc-500 dark:text-zinc-400 mb-3 leading-relaxed">
+
+                <p className="text-xs md:text-[13px] text-zinc-500 dark:text-zinc-400 mb-4 leading-relaxed">
                   {project.description}
                 </p>
-                
-                <div className="mb-1">
+
+                <div>
                   <a 
                     href={`https://${project.link}`}
                     target="_blank"
@@ -99,7 +100,7 @@ export default function ProjectsPage() {
         })}
       </div>
 
-      {/* Secondary Projects List (Styled to match reference image) */}
+      {/* Secondary Projects List */}
       <div className="flex flex-col border-t border-zinc-200/80 dark:border-zinc-800/80 pt-4">
         {otherProjects.map((project) => (
           <a 
@@ -114,7 +115,7 @@ export default function ProjectsPage() {
                 {project.title}
               </h3>
             </div>
-            
+
             <div className="flex-1 flex items-start justify-between gap-6">
               <div className="flex flex-col gap-2">
                 <p className="text-[10px] md:text-xs font-mono font-medium uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
@@ -124,7 +125,7 @@ export default function ProjectsPage() {
                   {project.description}
                 </p>
               </div>
-              
+
               <div className="shrink-0 pt-0.5">
                 <ArrowUpRight 
                   className="w-4 h-4 text-zinc-300 dark:text-zinc-600 group-hover:text-zinc-900 dark:group-hover:text-zinc-300 transition-transform transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 duration-300" 
