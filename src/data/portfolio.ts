@@ -33,7 +33,7 @@ export const projects = [
     description: "An AI-powered research platform for Philippine history. It enables users to upload digitized archival manuscripts and query them using Retrieval-Augmented Generation (RAG) to ensure every AI-generated insight is strictly anchored to a verifiable primary source.",
     link: "kasaysayan-archive.vercel.app/",
     tags: ["Next.js", "RAG", "Supabase", "OCR", "TypeScript"],
-    image: "/projects/kasaysayan.png",
+    image: "/projects/Kasaysayan.png",
     category: "AI/Web"
   },
   {

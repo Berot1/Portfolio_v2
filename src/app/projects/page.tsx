@@ -38,22 +38,22 @@ export default function ProjectsPage() {
       </div>
 
       {/* Featured Projects */}
-      <div className="space-y-4 mb-12">
+      <div className="space-y-3 mb-10">
         {featuredProjects.map((project) => {
           const { label, Icon } = getLinkDetails(project.link);
           return (
             <div 
               key={project.title}
-              className="flex flex-col md:flex-row gap-4 md:gap-6 p-3 md:p-4 bg-white dark:bg-zinc-900/30 border border-zinc-200/80 dark:border-white/5 rounded-2xl shadow-sm dark:shadow-none"
+              className="flex flex-col md:flex-row gap-3 md:gap-5 p-2.5 md:p-3 bg-white dark:bg-zinc-900/30 border border-zinc-200/80 dark:border-white/5 rounded-2xl shadow-sm dark:shadow-none"
             >
-              <div className="relative w-full md:w-[240px] aspect-square shrink-0 rounded-xl overflow-hidden bg-zinc-50 dark:bg-zinc-950/50 flex items-center justify-center">
+              <div className="relative w-full md:w-[270px] aspect-[16/9] shrink-0 rounded-xl overflow-hidden bg-zinc-50 dark:bg-zinc-950/50 flex items-center justify-center">
                 {project.image ? (
                    <Image 
                      src={project.image}
                      alt={project.title}
                      fill
-                     className="object-cover transition-transform duration-700 hover:scale-105"
-                     sizes="(max-width: 768px) 100vw, 240px"
+                     className="object-contain transition-transform duration-700 hover:scale-[1.02]"
+                     sizes="(max-width: 768px) 100vw, 270px"
                      priority={false}
                    />
                 ) : (
@@ -61,8 +61,8 @@ export default function ProjectsPage() {
                 )}
               </div>
               
-              <div className="flex-1 flex flex-col py-1 md:py-2 md:pr-2">
-                <div className="flex flex-wrap items-center gap-2 mb-3">
+              <div className="flex-1 flex flex-col py-0.5 md:py-1 md:pr-1">
+                <div className="flex flex-wrap items-center gap-1.5 mb-2">
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900">
                     <span>&lt;/&gt;</span>
                     <span>{project.category || "PROJECT"}</span>
@@ -74,15 +74,15 @@ export default function ProjectsPage() {
                   ))}
                 </div>
                 
-                <h2 className="text-xl md:text-2xl font-semibold text-zinc-900 dark:text-zinc-50 mb-2 tracking-tight">
+                <h2 className="text-lg md:text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-1.5 tracking-tight">
                   {project.title}
                 </h2>
                 
-                <p className="text-xs md:text-[14px] text-zinc-500 dark:text-zinc-400 mb-4 leading-relaxed">
+                <p className="text-xs md:text-[13px] text-zinc-500 dark:text-zinc-400 mb-3 leading-relaxed">
                   {project.description}
                 </p>
                 
-                <div className="mb-4">
+                <div className="mb-1">
                   <a 
                     href={`https://${project.link}`}
                     target="_blank"
