@@ -1,11 +1,10 @@
 "use client";
+
 import React, { useState, useEffect } from 'react';
 import { personalInfo } from '@/data/portfolio';
 import { MapPin, BadgeCheck } from 'lucide-react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import ThemeToggle from '../ThemeToggle';
-import { BorderBeam } from "@/components/magicui/border-beam";
 
 export default function Hero() {
   const roles = personalInfo.role.split(" \\ ");
@@ -19,68 +18,56 @@ export default function Hero() {
   }, [roles.length]);
 
   return (
-    <section className="relative flex flex-col sm:flex-row items-center sm:items-start gap-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
-      {/* Profile Image */}
-      <div className="shrink-0">
-        <div className="relative w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden ring-2 ring-zinc-100 dark:ring-zinc-800 shadow-xl">
-          <Image 
-            src="/image/profile.jpg" 
-            alt={personalInfo.name} 
-            fill 
-            className="object-cover transition-transform duration-500 hover:scale-110" 
-            priority
-          />
-        </div>
-      </div>
-
-      {/* Hero Content */}
-      <div className="flex-1 w-full text-center sm:text-left">
-        <div className="space-y-2">
-          {/* Refined Name Styling: Reduced size and weight for professional look */}
-          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 flex items-center justify-center sm:justify-start gap-2">
-            {personalInfo.name}
-            <BadgeCheck className="w-5 h-5 text-blue-500 shrink-0" strokeWidth={2.5} />
-          </h1>
-          
-          <div className="h-8 overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={roles[index]}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-                className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-medium"
-              >
-                {roles[index]}
-              </motion.p>
-            </AnimatePresence>
+    <motion.section
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="relative flex flex-col sm:flex-row items-center sm:items-start justify-between gap-8 pb-10 border-b border-zinc-200/60 dark:border-white/5 w-full"
+    >
+      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8 flex-1">
+        
+        {/* Profile Image - Hidden on Desktop (md), visible on Mobile */}
+        <div className="shrink-0 md:hidden">
+          <div className="relative w-32 h-32 overflow-hidden bg-zinc-50 dark:bg-zinc-950 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800">
+            <Image
+              src="/image/profile.jpg"
+              alt={personalInfo.name}
+              fill
+              className="object-cover transition-transform duration-700 hover:scale-105"
+              priority
+            />
           </div>
+        </div>
 
-          <div className="flex flex-col items-center sm:items-start gap-3 mt-2">
-            <div className="flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-500">
-              <MapPin className="w-4 h-4" /> 
+        {/* Hero Content */}
+        <div className="w-full text-center sm:text-left mt-2">
+          <div className="space-y-1.5">
+            <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 flex items-center justify-center sm:justify-start gap-2 mb-3">
+              {personalInfo.name}
+              <BadgeCheck className="w-6 h-6 text-blue-500/80 shrink-0" strokeWidth={2} />
+            </h1>
+            
+            <div className="h-8 overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={roles[index]}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="text-base md:text-lg text-zinc-500 dark:text-zinc-400 font-light tracking-wide"
+                >
+                  {roles[index]}
+                </motion.p>
+              </AnimatePresence>
+            </div>
+            <div className="flex items-center justify-center sm:justify-start gap-2 text-sm text-zinc-400 dark:text-zinc-500 font-medium tracking-wide mt-4">
+              <MapPin className="w-4 h-4" strokeWidth={1.5} />
               {personalInfo.location}
             </div>
-
-            <div className="flex items-center gap-3">
-              <a 
-                href={`mailto:${personalInfo.email}`}
-                className="relative flex w-fit items-center justify-center overflow-hidden rounded-full px-3 py-1 text-xs font-medium text-zinc-600 dark:text-zinc-400 bg-white dark:bg-zinc-950 shadow-sm hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors cursor-pointer group"
-              >
-                {/* Border Beam Component */}
-                <BorderBeam duration={4} colorFrom="#22c55e" colorTo="transparent" borderWidth={1.5} />
-                
-                <span className="flex items-center gap-1.5 relative z-10 px-1 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors">
-                  Open to work
-                </span>
-              </a>
-              
-              <ThemeToggle />
-            </div>
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

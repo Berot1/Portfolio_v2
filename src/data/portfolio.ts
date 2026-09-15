@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Gil Bernard F. Maglinte",
-  role: "Computer Engineer \\ Software Developer \\ IT Specialist \\ AI Enthusiast",
+  role: "Computer Engineer \\ Software Developer \\ IT Support Specialist \\ AI Enthusiast",
   location: "Cebu City, Central Visayas, Philippines",
   email: "mgilbernard@gmail.com",
   about: [
@@ -26,7 +26,7 @@ export const projects = [
     link: "kneura-sense-koa.vercel.app",
     tags: ["Next.js", "Edge AI", "XIAO ESP32-S3", "PostgreSQL", "MQTT"],
     image: "/projects/KneuraSense.png",
-    category: "IoT"
+    category: "AI/IoT"
   },
   {
     title: "Kasaysayan",
@@ -113,20 +113,26 @@ export const experience = [
 ];
 
 export const techStack = {
-  "Frontend & UI": [
-    "Next.js", "React", "Tailwind CSS", "JavaScript", "HTML", "CSS", "Figma", "Canva"
+  "Frontend": [
+    "Next.js", "React", "Tailwind CSS", "JavaScript", "TypeScript", "HTML", "CSS", "Figma", "Canva", "TipTap", "Vite"
   ],
-  "Backend & Cloud": [
-    "Node.js", "FastAPI", "ASP.NET", "PostgreSQL", "Supabase", "Vercel", "AWS Lambda", "Gemini API", "OpenWeather API", "Render", "HiveMQ"
+  "Backend & Databases": [
+    "Node.js", "FastAPI", "ASP.NET Core MVC", "Laravel", "PHP", "Python", "PostgreSQL", "MySQL", "Microsoft Access", "REST APIs", "WebSockets", "Meta for Developers", "OpenWeather API", "HiveMQ"
+  ],
+  "DevOps & Cloud": [
+    "Google Cloud", "AWS SES", "AWS Lambda", "Vercel", "Render", "Supabase", "Firebase", "GitHub Actions", "Linux", "CentOS Stream 10", "HiveMQ"
+  ],
+  "AI / ML": [
+    "Gemini API", "LangChain", "RAG Pipelines", "Vector Search", "TensorFlow Lite Micro", "Edge Impulse (TinyML)", "Edge AI", "Tesseract OCR"
   ],
   "IoT & Embedded": [
-    "C", "C++", "XIAO ESP32-S3", "AWS IoT", "MQTT.js", "Arduino IDE", "PlatformIO", "FreeRTOS", "TensorFlow Lite Micro", "Edge Impulse (TinyML)"
+    "C", "C++", "XIAO ESP32-S3", "AWS IoT", "MQTT.js", "Arduino IDE", "PlatformIO", "FreeRTOS", "Microcontroller Programming", "Embedded Systems"
   ],
   "Hardware & Engineering": [
-    "KiCad", "PCB Design", "Circuit Schematics", "Fusion 360", "AutoCAD", "Inventor", "3D Design", "MatLab", "I2C Multiplexing (PCA9548A)", "Sensor Fusion (IMU / FSR)"
+    "KiCad", "PCB Design", "Circuit Design", "Fusion 360", "AutoCAD", "Inventor", "3D Design", "MATLAB",
   ],
   "Tools & Architecture": [
-    "Git", "GitHub", "VS Code", "Visual Studio", "C#", "Cisco", "Vite", "JWT", "Zod", "ESLint", "Prisma", "SPIFFS File System"
+    "Git", "GitHub", "VS Code", "Visual Studio", "C#", "Cisco", "JWT", "OAuth", "Zod", "ESLint", "Prisma", "SPIFFS File System", "Activepieces"
   ]
 };
 
@@ -267,3 +273,5 @@ export const socialLinks = [
   { name: "GitHub", link: "https://github.com/Berot1", icon: "/icons/github-.webp" },
   { name: "Instagram", link: "https://www.instagram.com/itsgilb__?igsh=YWU2aHZ2d3Blb2ps", icon: "/icons/instagram-icon.webp" }
 ];
+
+//Monospace aesthetic design

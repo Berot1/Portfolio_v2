@@ -11,59 +11,58 @@ export default function Certifications() {
   return (
     <section className="space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold text-zinc-900 dark:text-white">Recent Certifications</h2>
+        <div className="flex items-center gap-2 font-mono text-xs tracking-widest text-zinc-700 dark:text-zinc-400 uppercase">
+          <span>05</span>
+          <span>—</span>
+          <span>certifications</span>
+        </div>
         <Link 
           href="/certifications" 
-          className="text-sm text-zinc-600 hover:text-black dark:hover:text-white cursor-pointer transition-colors"
+          className="text-xs font-medium text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors tracking-wide"
         >
-          View All &gt;
+          View All &rarr;
         </Link>
       </div>
-      
-      <div className="flex flex-col space-y-3">
+             
+      <div className="space-y-4">
         {displayedCerts.map((cert) => {
-          /**
-           * LOGIC: 
-           * 1. If an image is present, we ALWAYS go to the internal detail page (Jumpstart/OJT).
-           * 2. If NO image is present but a URL exists, we go externally (Networking Essentials).
-           */
           const isExternal = !cert.image && !!cert.credentialUrl;
           const targetHref = isExternal ? cert.credentialUrl : `/certifications/${cert.slug}`;
 
           return (
             <Link 
-              key={cert.slug} 
+              key={cert.slug}
               href={targetHref}
               target={isExternal ? "_blank" : "_self"}
               rel={isExternal ? "noopener noreferrer" : ""}
-              className="block px-4 py-3 bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-sm hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-all hover:border-zinc-300 dark:hover:border-zinc-600 hover:shadow-sm cursor-pointer group"
+              className="group flex items-center justify-between gap-4 pb-4 border-b border-zinc-100 dark:border-white/5 last:border-0 last:pb-0 transition-colors cursor-pointer"
             >
-              <div className="flex gap-3 items-center">
-                
-                {/* Icon Container - Only renders if the icon property exists */}
+              <div className="flex items-center gap-3.5">
+                {/* Issuer Logo Icon */}
                 {cert.icon && (
-                  <div className="w-10 h-10 shrink-0 bg-white dark:bg-black border border-zinc-100 dark:border-zinc-800 rounded-lg flex items-center justify-center p-1.5 shadow-sm">
+                  <div className="w-8 h-8 shrink-0 bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-white/10 rounded-lg flex items-center justify-center p-1.5 shadow-sm">
                     <Image 
                       src={cert.icon} 
                       alt={`${cert.issuer} logo`} 
-                      width={28} 
-                      height={28} 
-                      className="object-contain"
+                      width={20} 
+                      height={20} 
+                      className="object-contain" 
                     />
                   </div>
                 )}
-
-                {/* Text Content */}
-                <div className="flex-1 flex justify-between items-start">
-                  <div>
-                    <h3 className="font-bold text-zinc-900 dark:text-white text-sm line-clamp-1">{cert.title}</h3>
-                    <p className="text-xs text-zinc-500 mt-0.5">{cert.issuer}</p>
-                  </div>
-                  {isExternal && (
-                    <ExternalLink className="w-3.5 h-3.5 text-zinc-400 mt-1 shrink-0 ml-3 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors" />
-                  )}
+                <div>
+                  <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight group-hover:text-blue-500 transition-colors line-clamp-1">
+                    {cert.title}
+                  </h3>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 font-light">
+                    {cert.issuer}
+                  </p>
                 </div>
-                
+              </div>
+
+              <div className="flex items-center gap-2 shrink-0 font-mono text-xs text-zinc-400 dark:text-zinc-500">
+                <span>{cert.date}</span>
+                {isExternal && <ExternalLink className="w-3 h-3 group-hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" />}
               </div>
             </Link>
           );
