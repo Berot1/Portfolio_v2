@@ -100,11 +100,13 @@ export const experience = [
     company: "Bachelor of Science in Computer Engineering",
     year: "May 2026",
     highlight: true,
+    logo: "/icons/citu-logo.png",
   },
   {
     role: "Jumpstart Trainee — C# Web Development",
     company: "Alliance Software Inc.",
     year: "December 2025",
+    logo: "/icons/alliance-soft-inc.webp",
     achievements: [
       "Completed the Jumpstart Training Program specializing in C# Web Development as a fullstack developer.",
       "Gained hands-on experience in building, structuring, and deploying web applications."
@@ -114,6 +116,7 @@ export const experience = [
     role: "IT Support Specialist (OJT)",
     company: "Fusion CX",
     year: "May - July 2025",
+    logo: "/icons/fusion-bpo-cx.webp",
     achievements: [
       "Performed diagnostic testing and system checks on workstations, network devices, and peripherals to ensure operational integrity and user safety.",
       "Monitored and documented the delivery and inventory of IT equipment and consumables, ensuring accuracy and readiness for deployment.",
@@ -125,6 +128,7 @@ export const experience = [
     role: "Hello World!",
     company: "Proudly wrote my very first line of code!",
     year: "November 2022",
+    logo: "/icons/citu-logo.png",
   },
 ];
 
