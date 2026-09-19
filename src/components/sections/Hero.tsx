@@ -5,6 +5,7 @@ import { personalInfo } from '@/data/portfolio';
 import { MapPin, BadgeCheck } from 'lucide-react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import HyperText from '@/components/HyperText';
 
 export default function Hero() {
   const roles = personalInfo.role.split(" \\ ");
@@ -41,9 +42,10 @@ export default function Hero() {
         {/* Hero Content */}
         <div className="w-full text-center sm:text-left mt-2 font-mono">
           <div className="space-y-1.5">
-            <div className="text-xs text-zinc-400 dark:text-zinc-500 mb-1">[00 // OVERVIEW]</div>
+            <div className="text-xs text-zinc-400 dark:text-zinc-500 mb-1">[00] OVERVIEW</div>
             <h1 className="text-2xl md:text-4xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 flex items-center justify-center sm:justify-start gap-2 mb-3">
-              {personalInfo.name}
+              {/* Replace {personalInfo.name} with the HyperText component */}
+              <HyperText text={personalInfo.name} />
               <BadgeCheck className="w-5 h-5 text-blue-500/80 shrink-0" strokeWidth={2} />
             </h1>
             

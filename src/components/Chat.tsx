@@ -23,7 +23,8 @@ export default function Chat() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.altKey && e.key.toLowerCase() === 'k') {
+      // Changed from e.altKey to (e.ctrlKey || e.metaKey)
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         setIsOpen((prev) => !prev);
         setHasUnread(false);
@@ -83,7 +84,7 @@ export default function Chat() {
         </div>
         
         <div className="flex items-center gap-1.5 shrink-0 text-zinc-400 dark:text-zinc-500">
-          <kbd className="font-sans px-1.5 py-0.5 border border-zinc-200 dark:border-zinc-700 rounded-md text-[11px] bg-white dark:bg-[#09090b] shadow-sm leading-none flex items-center justify-center min-w-[26px]">Alt</kbd>
+          <kbd className="font-sans px-1.5 py-0.5 border border-zinc-200 dark:border-zinc-700 rounded-md text-[11px] bg-white dark:bg-[#09090b] shadow-sm leading-none flex items-center justify-center min-w-[26px]">Ctrl</kbd>
           <span className="text-[10px] font-sans">+</span>
           <kbd className="font-sans px-1.5 py-0.5 border border-zinc-200 dark:border-zinc-700 rounded-md text-[11px] bg-white dark:bg-[#09090b] shadow-sm leading-none flex items-center justify-center min-w-[18px]">K</kbd>
         </div>

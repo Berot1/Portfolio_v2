@@ -67,7 +67,12 @@ export default function Portfolio() {
       </section>
 
       <section id="experience">
-        <SectionHeader id="04" title="EXPERIENCE" />
+        <SectionHeader 
+          id="04" 
+          title="EXPERIENCE" 
+          link="/experience" 
+          linkText="VIEW ALL" 
+        />
         <Experience />
       </section>
 

@@ -106,7 +106,7 @@ export const experience = [
     company: "Alliance Software Inc.",
     year: "December 2025",
     achievements: [
-      "Completed the intensive Jumpstart Training Program specializing in C# Web Development.",
+      "Completed the Jumpstart Training Program specializing in C# Web Development as a fullstack developer.",
       "Gained hands-on experience in building, structuring, and deploying web applications."
     ],
   },

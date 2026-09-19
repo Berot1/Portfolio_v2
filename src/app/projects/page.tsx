@@ -37,62 +37,80 @@ export default function ProjectsPage() {
       </div>
 
       {/* Featured Projects */}
-      <div className="space-y-4 mb-12">
+      <div className="space-y-4 mb-10">
         {featuredProjects.map((project) => {
           const { label, Icon } = getLinkDetails(project.link);
+
           return (
-            <div 
+            <div
               key={project.title}
-              className="flex flex-col sm:flex-row gap-5 p-5 md:p-6 bg-white dark:bg-zinc-900/30 border border-zinc-200/80 dark:border-white/5 rounded-2xl shadow-sm dark:shadow-none items-start"
+              className="flex flex-col border border-zinc-300 dark:border-zinc-800 bg-zinc-50 dark:bg-[#09090b] rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-shadow"
             >
-              {/* App Icon Box */}
-              <div className="relative w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-2xl overflow-hidden bg-zinc-50 dark:bg-zinc-950/50 border border-zinc-200/60 dark:border-white/10 flex items-center justify-center shadow-sm">
-                {project.image ? ( 
-                  <Image 
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 hover:scale-105"
-                    sizes="96px"
-                    priority={false}
-                  />
-                ) : (
-                  <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-600 tracking-widest">ICON</span>
-                )}
+              {/* Fake Terminal Header - Compact */}
+              <div className="flex items-center justify-between px-2.5 py-1.5 border-b border-zinc-300 dark:border-zinc-800 bg-zinc-200/50 dark:bg-zinc-900/50">
+                 <div className="flex gap-1">
+                   <span className="w-1.5 h-1.5 bg-zinc-400 dark:bg-zinc-600"></span>
+                   <span className="w-1.5 h-1.5 bg-zinc-400 dark:bg-zinc-600"></span>
+                 </div>
+                 <span className="text-[9px] text-zinc-500 font-mono tracking-widest uppercase">
+                   {project.title.replace(/\s+/g, '_').toUpperCase()}.EXE
+                 </span>
               </div>
 
-              {/* Project Info */}
-              <div className="flex-1 flex flex-col">
-                <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900">
-                    <span>&lt;/&gt;</span>
-                    <span>{project.category || "PROJECT"}</span>
-                  </span>
-                  {project.tags.slice(0, 3).map(tag => (
-                    <span key={tag} className="px-2.5 py-1 rounded-full text-[10px] font-mono tracking-wider text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200/60 dark:border-zinc-700">
-                      {tag}
-                    </span>
-                  ))}
+              <div className="flex flex-col md:flex-row">
+                {/* Image Section - Narrower and Full Color */}
+                <div className="relative w-full md:w-40 h-32 md:h-auto border-b md:border-b-0 md:border-r border-zinc-300 dark:border-zinc-800 shrink-0 bg-zinc-100 dark:bg-zinc-950 overflow-hidden group">
+                  {project.image ? (
+                     <Image
+                       src={project.image}
+                       alt={project.title}
+                       fill
+                       className="object-cover transition-transform duration-500 group-hover:scale-105"
+                       sizes="(max-width: 768px) 100vw, 160px"
+                     />
+                  ) : (
+                     <div className="w-full h-full flex items-center justify-center">
+                       <span className="text-zinc-400 font-mono text-[9px] tracking-widest uppercase">
+                         &lt;NO_IMG /&gt;
+                       </span>
+                     </div>
+                  )}
                 </div>
 
-                <h2 className="text-lg md:text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-1.5 tracking-tight">
-                  {project.title}
-                </h2>
+                {/* Content Section - Reduced Padding */}
+                <div className="p-4 flex flex-col flex-1">
+                  {/* Technical Monospace Tags */}
+                  <div className="flex flex-wrap items-center gap-1.5 mb-2 text-[9px] font-mono uppercase tracking-widest text-zinc-500">
+                    <span className="font-bold text-zinc-800 dark:text-zinc-300">
+                      [{project.category || "PRJ"}]
+                    </span>
+                    {project.tags.slice(0, 4).map((tag) => (
+                      <span key={tag} className="text-zinc-400">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
-                <p className="text-xs md:text-[13px] text-zinc-500 dark:text-zinc-400 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
+                  <h2 className="text-base font-bold text-zinc-900 dark:text-zinc-50 mb-1.5 tracking-tight">
+                    {project.title}
+                  </h2>
+                  <p className="text-[11px] md:text-xs text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed font-sans line-clamp-2 md:line-clamp-none">
+                    {project.description}
+                  </p>
 
-                <div>
-                  <a 
-                    href={`https://${project.link}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg text-xs font-mono font-semibold hover:bg-zinc-800 dark:hover:bg-white transition-colors w-fit shadow-sm"
-                  >
-                    <Icon className="w-3.5 h-3.5" />
-                    {label}
-                  </a>
+                  {/* Minimalist Link */}
+                  <div className="mt-auto flex items-center pt-2.5 border-t border-dashed border-zinc-300 dark:border-zinc-800">
+                    <a
+                      href={`https://${project.link}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group/link flex items-center gap-1.5 text-[10px] font-mono font-bold tracking-wider text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors uppercase w-fit"
+                    >
+                      <Icon className="w-3.5 h-3.5" />
+                      <span>{label}</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400 group-hover/link:text-blue-500 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

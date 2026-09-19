@@ -8,6 +8,7 @@ import { Mail, Activity, MapPin } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import Terminal from "@/components/Terminal";
 import Chat from "@/components/Chat";
+import { Component as ShapeLoader } from "@/components/ui/loader-2";
 
 export default function Sidebar() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
@@ -23,7 +24,8 @@ export default function Sidebar() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.altKey && e.key.toLowerCase() === "j") {
+      // Changed from e.altKey to (e.ctrlKey || e.metaKey)
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "j") {
         e.preventDefault();
         setIsTerminalOpen((prev) => !prev);
       }
@@ -57,10 +59,16 @@ export default function Sidebar() {
               priority
             />
           </div>
-          <div>
+          <div className="flex flex-col items-center">
             <h1 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 tracking-tight uppercase">
               {personalInfo.name}
             </h1>
+            
+            {/* INJECTED LOADER HERE */}
+            <div className="mt-2 mb-1 opacity-70 scale-75">
+              <ShapeLoader />
+            </div>
+
             <p className="text-[10px] text-zinc-500 dark:text-zinc-400 mt-1 uppercase tracking-widest">
               COMPUTER ENGINEER
             </p>
@@ -89,7 +97,9 @@ export default function Sidebar() {
 
         {/* --- BOTTOM: Fixed Utilities (Ask Anything & Sandbox) --- */}
         <div className="p-6 md:p-8 pt-2 shrink-0 space-y-6">
-          <div className="space-y-4">
+          
+          {/* We merged the pt-6 and border-t classes directly into this wrapper */}
+          <div className="space-y-4 pt-6 border-t border-zinc-200 dark:border-zinc-800/60">
             <Chat />
             
             <button
@@ -99,7 +109,7 @@ export default function Sidebar() {
               <span className="whitespace-nowrap">Sandbox OS</span>
               
               <div className="flex items-center gap-1.5 shrink-0 text-zinc-400 dark:text-zinc-500">
-                <kbd className="font-sans px-1.5 py-0.5 border border-zinc-200 dark:border-zinc-700 rounded-md text-[11px] bg-white dark:bg-[#09090b] shadow-sm leading-none flex items-center justify-center min-w-[26px]">Alt</kbd>
+                <kbd className="font-sans px-1.5 py-0.5 border border-zinc-200 dark:border-zinc-700 rounded-md text-[11px] bg-white dark:bg-[#09090b] shadow-sm leading-none flex items-center justify-center min-w-[26px]">Ctrl</kbd>
                 <span className="text-[10px] font-sans">+</span>
                 <kbd className="font-sans px-1.5 py-0.5 border border-zinc-200 dark:border-zinc-700 rounded-md text-[11px] bg-white dark:bg-[#09090b] shadow-sm leading-none flex items-center justify-center min-w-[18px]">J</kbd>
               </div>
